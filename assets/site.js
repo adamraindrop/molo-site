@@ -175,7 +175,7 @@
       o.hidden = true;
       document.body.style.overflow = '';
       var f = o.querySelector('iframe');
-      if (f) f.src = '';          // stop playback
+      if (f) f.src = 'about:blank';   // stop playback
     }
     document.querySelectorAll('[data-open]').forEach(function (btn) {
       btn.addEventListener('click', function () {

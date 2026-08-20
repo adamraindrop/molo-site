@@ -11,45 +11,129 @@
 <link rel="stylesheet" href="_ds/molo-design-system-e2e87b0e-ba87-4c2c-8d2e-76acdc8a775e/tokens/colors.css">
 <link rel="stylesheet" href="_ds/molo-design-system-e2e87b0e-ba87-4c2c-8d2e-76acdc8a775e/tokens/typography.css">
 <link rel="stylesheet" href="_ds/molo-design-system-e2e87b0e-ba87-4c2c-8d2e-76acdc8a775e/tokens/geometry.css">
-<link rel="stylesheet" href="_ds/molo-design-system-e2e87b0e-ba87-4c2c-8d2e-76acdc8a775e/tokens/semantic.css">
 <link rel="stylesheet" href="assets/site.css">
 <style>
-.pullquote{font-family:var(--molo-font-display);font-weight:400;font-size:26px;line-height:1.35;
-  color:var(--molo-navy);margin:26px 0;max-width:34ch}
-.navy .pullquote{color:var(--molo-cream)}
-.vidrow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:32px}
-.statgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
-.statgrid--2{grid-template-columns:repeat(2,minmax(0,1fr));max-width:760px;margin:24px auto 0}
-.statnote{text-align:center;font-size:14.5px;font-style:italic;color:var(--molo-gray-3a);
-  margin:24px auto 0;max-width:none}
-/* Christina's headshot sits over the corner of the lawn shot, per the mock. */
-.herofig{position:relative}
-.herofig__badge{position:absolute;right:-18px;bottom:-18px;width:148px;height:148px;border-radius:50%;
+/* Our Story is laid out from Our Story.dc.html directly rather than from the
+   shared section classes. The mock varies its headline size per section (24px
+   for the quiet moment, 38px for the closer) and lets body copy fill its
+   container, both of which the site-wide .h2 and p{max-width:64ch} flatten. */
+.os{padding:88px 0}
+.os p{max-width:none}
+.os-w{max-width:1240px;margin:0 auto;padding:0 40px}
+.os-w--860{max-width:860px}
+.os-w--820{max-width:820px}
+.os-w--720{max-width:720px}
+.os-w--1100{max-width:1100px}
+.os-grid{display:grid;gap:56px}
+.os-grid--hero{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center}
+.os-grid--reb{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);align-items:start}
+.os-grid--chr{grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);align-items:start}
+
+.os-eyebrow{font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--molo-blue);margin:0 0 14px}
+.os-h1{font-family:var(--molo-font-display);font-weight:400;font-size:40px;line-height:1.12;
+  text-transform:uppercase;margin:0 0 18px}
+.os-h2{font-family:var(--molo-font-display);font-weight:400;font-size:30px;line-height:1.3;margin:0 0 18px}
+.os-h2--name{font-size:32px;text-transform:uppercase;line-height:1.2}
+.os p.os-lead{font-size:16.5px;line-height:1.6;margin:0 0 18px;max-width:54ch}
+.os-tag{font-family:var(--molo-font-display);font-weight:400;font-size:20px;color:var(--molo-blue);margin:0}
+.os p.os-body{font-size:15.5px;line-height:1.65;margin:0 0 16px}
+.os-quote{font-family:var(--molo-font-display);font-weight:400;font-size:21px;line-height:1.4;
+  margin:0 0 16px;color:var(--molo-blue)}
+.os-cite{font-style:italic;font-size:15.5px;line-height:1.6;margin:0 0 28px;color:var(--molo-gray-3a)}
+
+.os-fig{position:relative}
+.os-fig__frame{border-radius:40px;overflow:hidden;aspect-ratio:.92}
+.os-fig__frame img{width:100%;height:100%;object-fit:cover;display:block}
+.os-fig__badge{position:absolute;right:-18px;bottom:-18px;width:148px;height:148px;border-radius:50%;
   object-fit:cover;object-position:top;border:6px solid var(--molo-blue);background:#fff;
   box-shadow:0 14px 40px rgba(4,36,54,.18)}
-.closer{position:relative;overflow:hidden}
-.closer__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.32}
-.statgrid .n{font-family:var(--molo-font-display);font-weight:400;font-size:40px;color:var(--molo-blue);margin:0 0 8px}
-.round{width:100%;max-width:360px;aspect-ratio:1;border-radius:50%;overflow:hidden;border:6px solid var(--molo-blue)}
-.round img{width:100%;height:100%;object-fit:cover;object-position:top}
-@media(max-width:960px){.vidrow,.statgrid{grid-template-columns:minmax(0,1fr)}
-  .statgrid--2{grid-template-columns:minmax(0,1fr)}.round{max-width:260px}
-  .herofig__badge{width:110px;height:110px;right:0;bottom:-14px;border-width:5px}}
+/* The mock does not crop this portrait: it runs at its natural aspect. */
+.os-portrait{border-radius:40px;overflow:hidden;position:sticky;top:150px}
+.os-portrait img{width:100%;display:block}
+.os-headshot{width:min(320px,100%);aspect-ratio:1;object-fit:cover;object-position:top;border-radius:50%;
+  border:6px solid var(--molo-blue);background:#fff;box-shadow:0 14px 40px rgba(4,36,54,.14)}
+
+.os-vids{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.os-vid{background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 8px 28px rgba(4,36,54,.08)}
+.os-vid button{display:block;width:100%;padding:0;border:0;background:none;cursor:pointer;
+  position:relative;aspect-ratio:16/9}
+.os-vid button img{width:100%;height:100%;object-fit:cover;display:block}
+.os-vid__play{position:absolute;inset:0;display:grid;place-items:center;background:rgba(4,36,54,.30)}
+.os-vid__play i{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.95);
+  display:grid;place-items:center}
+.os-vid__meta{padding:10px 14px}
+.os-vid__meta p{margin:0;font-size:12px;font-weight:600;line-height:1.35}
+.os-vid__meta p+p{margin:4px 0 0;font-size:11.5px;color:var(--molo-gray-3a);font-weight:500}
+
+.os-moment{padding:96px 0;background:var(--molo-navy);color:var(--molo-cream);text-align:center}
+.os-moment .os-eyebrow{color:var(--molo-sky-light)}
+.os-moment h2{font-family:var(--molo-font-display);font-weight:400;font-size:24px;line-height:1.35;
+  margin:0 0 24px;color:var(--molo-cream)}
+.os-moment__big{font-family:var(--molo-font-display);font-weight:400;font-size:42px;line-height:1.1;
+  text-transform:uppercase;margin:0 0 24px;color:var(--molo-sky-light)}
+.os-moment__say{font-size:15.5px;line-height:1.65;margin:0 0 20px;color:var(--molo-cream)}
+.os-moment__q{font-style:italic;font-size:15.5px;line-height:1.65;margin:0 0 8px;color:rgba(255,255,255,.85)}
+.os-moment__who{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--molo-sky-light);margin:0 0 24px}
+.os-moment__q--last{margin:0 0 20px}
+
+.os-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.os-card{background:#fff;border-radius:24px;padding:24px}
+.os-card h3{margin:0 0 8px;font-family:var(--molo-font-display);font-weight:400;font-size:16px}
+.os-card p{margin:0;font-size:13.5px;line-height:1.5;color:var(--molo-gray-3a)}
+
+.os-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-bottom:24px}
+.os-stats--2{grid-template-columns:repeat(2,minmax(0,1fr));max-width:760px;margin:0 auto 24px}
+.os-stat{background:#fff;border-radius:24px;padding:32px;text-align:center}
+.os-stat .n{font-family:var(--molo-font-display);font-weight:400;font-size:44px;color:var(--molo-blue);margin:0 0 8px}
+.os-stats--2 .n{font-size:40px}
+.os-stat p:last-child{margin:0;font-size:13.5px;line-height:1.5;color:var(--molo-gray-3a)}
+.os-statnote{text-align:center;font-size:14.5px;font-style:italic;color:var(--molo-gray-3a);margin:0}
+
+.os-closer{position:relative;padding:110px 0;background:var(--molo-navy);overflow:hidden}
+.os-closer__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.32}
+.os-closer__in{position:relative;text-align:center;color:var(--molo-cream)}
+.os-closer h2{font-family:var(--molo-font-display);font-weight:400;font-size:38px;line-height:1.15;
+  text-transform:uppercase;margin:0 0 12px;color:var(--molo-cream)}
+.os-closer p{font-size:18px;line-height:1.5;margin:0 auto 28px;max-width:44ch}
+.os-cta{display:inline-block;background:var(--molo-blue);color:var(--molo-cream);font-weight:600;
+  font-size:14px;letter-spacing:.04em;text-transform:uppercase;padding:15px 30px;border-radius:30px;
+  text-decoration:none}
+.os-cta:hover{background:#000;color:#fff}
+.os-cta--cream{background:var(--molo-cream);color:var(--molo-navy);font-size:15px;padding:17px 34px}
+
+@media(max-width:960px){
+  .os-grid--hero,.os-grid--reb,.os-grid--chr{grid-template-columns:minmax(0,1fr);gap:36px}
+  .os-portrait{position:static}
+  .os-fig__badge{width:110px;height:110px;right:0;bottom:-14px;border-width:5px}
+  .os-cards,.os-stats,.os-stats--2{grid-template-columns:minmax(0,1fr)}
+  .os-headshot{width:min(240px,100%)}
+  .os-chr-col{text-align:center}
+}
 @media(max-width:640px){
-  .pullquote{font-size:20px;margin:20px 0}
-  /* Three 101px video cards are unreadable; swipe row with the first card whole. */
-  .vidrow{display:flex!important;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;
+  .os,.os-moment{padding:56px 0}
+  .os-closer{padding:72px 0}
+  .os-w{padding:0 20px}
+  .os-h1{font-size:28px}
+  .os-h2{font-size:24px}
+  .os-h2--name{font-size:26px}
+  .os-lead{font-size:15.5px}
+  .os-moment__big{font-size:30px}
+  .os-closer h2{font-size:27px}
+  .os-closer p{font-size:16px}
+  .os-quote{font-size:19px}
+  .os-fig__badge{width:84px;height:84px;border-width:4px}
+  /* Three cards at 101px are unreadable; swipe row with the first card whole. */
+  .os-vids{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;
     scrollbar-width:none;padding-bottom:4px}
-  .vidrow::-webkit-scrollbar{display:none}
-  .vidrow>.vid{flex:0 0 74%;scroll-snap-align:start}
-  /* 1fr is minmax(auto,1fr): "$10,000+" sets a min-content floor that blows
-     the column past 375. The two-up row stacks instead. */
-  .statgrid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
-  .statgrid--2{grid-template-columns:minmax(0,1fr);margin-top:18px}
-  .herofig__badge{width:84px;height:84px;border-width:4px}
-  .statnote{font-size:13.5px}
-  .statgrid .n{font-size:30px}
-  .round{max-width:200px;border-width:4px}
+  .os-vids::-webkit-scrollbar{display:none}
+  .os-vid{flex:0 0 74%;scroll-snap-align:start}
+  /* 1fr is minmax(auto,1fr): "$10,000+" sets a min-content floor past 375. */
+  .os-stats{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+  .os-stats--2{grid-template-columns:minmax(0,1fr)}
+  .os-stat{padding:22px 16px}
+  .os-stat .n,.os-stats--2 .n{font-size:30px}
 }
 </style>
 </head>
@@ -58,150 +142,150 @@
 
 <main>
 
-<!-- HERO ------------------------------------------------------------------ -->
-<section class="sec cream">
-  <div class="wrap">
-    <div class="grid2">
-      <div class="herofig">
-        <div class="imgframe" style="aspect-ratio:.92"><img src="assets/library/lifestyle/1822.jpg" alt="Rebecca Zamolo with her daughter on the lawn, Molo cartons beside them"></div>
-        <img class="herofig__badge" src="assets/christina-westbrook-headshot.png" alt="Christina Westbrook, MBA, MSN">
+<!-- HERO ------------------------------------------------------------------- -->
+<section class="os" style="background:var(--molo-cream)">
+  <div class="os-w os-grid os-grid--hero">
+    <div class="os-fig">
+      <div class="os-fig__frame">
+        <img src="assets/library/lifestyle/1822.jpg" alt="Rebecca Zamolo with her daughter on the lawn, Molo cartons beside them">
       </div>
-      <div>
-        <p class="eyebrow">Our story</p>
-        <h1 class="h1">Two women made this. <span style="color:var(--molo-blue)">One wrote the protocol. One lived it.</span></h1>
-        <p class="lead">Molo was built by a fertility nurse and a patient, which is an unusual way to start a supplement company and the reason this one is different. Everything here came out of a real clinic, for a real woman, before it was ever a product.</p>
-        <p class="pullquote" style="font-size:22px;margin-bottom:0">Empower your journey to motherhood.</p>
-      </div>
+      <img class="os-fig__badge" src="assets/christina-westbrook-headshot.png" alt="Christina Westbrook, MBA, MSN">
+    </div>
+    <div>
+      <p class="os-eyebrow">Our story</p>
+      <h1 class="os-h1">Two women made this. <span style="color:var(--molo-blue)">One wrote the protocol. One lived it.</span></h1>
+      <p class="os-lead">Molo was built by a fertility nurse and a patient, which is an unusual way to start a supplement company and the reason this one is different. Everything here came out of a real clinic, for a real woman, before it was ever a product.</p>
+      <p class="os-tag">Empower your journey to motherhood.</p>
     </div>
   </div>
 </section>
 
-<!-- WHY MOLO EXISTS -------------------------------------------------------- -->
-<section class="sec">
-  <div class="wrap-narrow">
-    <p class="eyebrow">Why we built it</p>
-    <h2 class="h2 full">Fertility support has two jobs. Almost nothing on the shelf does both.</h2>
-    <p>The first job is the foundation: folate, vitamin D, the daily nutrients a pregnancy will draw on. That is what a prenatal is built for, and it matters.</p>
-    <p>The second job is the cycle you are in right now. Ovulation, ovarian health, cycle regularity. <b>Very few prenatals were ever designed for any of it</b>, which means a great many women are carefully covering half of what they meant to cover, and nobody has told them.</p>
-    <p>So women assemble the other half themselves, one reasonable purchase at a time, until there are seven bottles on the counter and a routine that is genuinely hard to keep. <b>That gap is the entire reason Molo exists.</b> Two drinks, both jobs, written by someone who does this for a living.</p>
+<!-- WHY WE BUILT IT -------------------------------------------------------- -->
+<section class="os" style="background:#fff">
+  <div class="os-w os-w--860">
+    <p class="os-eyebrow">Why we built it</p>
+    <h2 class="os-h2">Fertility support has two jobs. Almost nothing on the shelf does both.</h2>
+    <p class="os-body">The first job is the foundation: folate, vitamin D, the daily nutrients a pregnancy will draw on. That is what a prenatal is built for, and it matters.</p>
+    <p class="os-body">The second job is the cycle you are in right now. Ovulation, ovarian health, cycle regularity. <b>Very few prenatals were ever designed for any of it</b>, which means a great many women are carefully covering half of what they meant to cover, and nobody has told them.</p>
+    <p class="os-body" style="margin:0">So women assemble the other half themselves, one reasonable purchase at a time, until there are seven bottles on the counter and a routine that is genuinely hard to keep. <b>That gap is the entire reason Molo exists.</b> Two drinks, both jobs, written by someone who does this for a living.</p>
   </div>
 </section>
 
 <!-- REBECCA ---------------------------------------------------------------- -->
-<section class="sec cream" id="rebecca">
-  <div class="wrap">
-    <div class="grid2 top">
-      <div class="imgframe" style="aspect-ratio:.86;position:sticky;top:96px"><img src="assets/library/lifestyle/IMG-8134.jpg" alt="Rebecca Zamolo in a soft pink robe, hand resting on her belly"></div>
-      <div>
-        <p class="eyebrow">The patient</p>
-        <h2 class="h2">Rebecca Zamolo</h2>
-        <p>At 29, ulcerative colitis with pre-cancerous changes cost Rebecca her colon and large intestine. Her doctors told her children were still possible, it would just be harder. She filmed that too, and thirty-two million people watched it.</p>
-        <p>When she and Matt decided to start a family in late 2019, they chose IVF deliberately, for the monitoring, because of what the surgery had done to her body. What followed was eighteen months of nightly injections, three egg retrievals, and two pregnancy losses. The second was a missed miscarriage at nine weeks, discovered at an appointment she had brought a camera to because it was supposed to be the announcement.</p>
-        <p class="pullquote">“Society tells us as women that we have to keep this private. So you have no support system. And then if something goes wrong, you feel alone, because you haven’t told anyone.”</p>
-        <p>She published that video anyway, on the exact date the announcement had been scheduled, to millions of people. <b>That is the decision the whole brand comes from.</b> Not the supplements. The willingness to say the thing out loud.</p>
-        <p>A year later, on her third round, from her last remaining female embryo, the one with the worst odds, she posted her daughter’s birth.</p>
-        <p class="pullquote">“She beat out all the odds. She had the least chance of being successful out of anything and she was the one that came through.”</p>
-
-        <div class="vidrow">
-          <div class="vid" style="background:var(--molo-gray-f4)">
-            <button class="vidbtn" data-open="video" data-video="clMF5cGitOE" aria-label="Play: We Lost Our Baby and I Am Not Pregnant Anymore">
-              <img src="assets/lp/yt-lost.jpg" alt=""><span class="vidscrim"><i><svg width="17" height="19" viewBox="0 0 17 19" aria-hidden="true"><path d="M16 8.2a1.5 1.5 0 010 2.6L2.7 18.3A1.5 1.5 0 010 17V2a1.5 1.5 0 012.2-1.3z" fill="var(--molo-navy)"/></svg></i></span></button>
-            <div class="vidmeta"><p style="font-size:13.5px;font-weight:600;line-height:1.35">We Lost Our Baby and I Am Not Pregnant Anymore</p><p style="font-size:12.5px;color:var(--molo-gray-98);margin-top:4px">7.4M views</p></div>
-          </div>
-          <div class="vid" style="background:var(--molo-gray-f4)">
-            <button class="vidbtn" data-open="video" data-video="eXMs04uIcNM" aria-label="Play: I’M PREGNANT">
-              <img src="assets/lp/yt-pregnant.jpg" alt=""><span class="vidscrim"><i><svg width="17" height="19" viewBox="0 0 17 19" aria-hidden="true"><path d="M16 8.2a1.5 1.5 0 010 2.6L2.7 18.3A1.5 1.5 0 010 17V2a1.5 1.5 0 012.2-1.3z" fill="var(--molo-navy)"/></svg></i></span></button>
-            <div class="vidmeta"><p style="font-size:13.5px;font-weight:600;line-height:1.35">I’M PREGNANT</p><p style="font-size:12.5px;color:var(--molo-gray-98);margin-top:4px">5.1M views</p></div>
-          </div>
-          <div class="vid" style="background:var(--molo-gray-f4)">
-            <button class="vidbtn" data-open="video" data-video="apetyGSD_RQ" aria-label="Play: Meeting Our Baby Girl For the First Time">
-              <img src="assets/lp/yt-birth.jpg" alt=""><span class="vidscrim"><i><svg width="17" height="19" viewBox="0 0 17 19" aria-hidden="true"><path d="M16 8.2a1.5 1.5 0 010 2.6L2.7 18.3A1.5 1.5 0 010 17V2a1.5 1.5 0 012.2-1.3z" fill="var(--molo-navy)"/></svg></i></span></button>
-            <div class="vidmeta"><p style="font-size:13.5px;font-weight:600;line-height:1.35">Meeting Our Baby Girl For the First Time</p><p style="font-size:12.5px;color:var(--molo-gray-98);margin-top:4px">21.5M views</p></div>
-          </div>
+<section class="os" id="rebecca" style="background:var(--molo-cream)">
+  <div class="os-w os-grid os-grid--reb">
+    <div class="os-portrait">
+      <img src="assets/library/lifestyle/IMG-8134.jpg" alt="Rebecca Zamolo in a soft pink robe, hand resting on her belly">
+    </div>
+    <div>
+      <p class="os-eyebrow">The patient</p>
+      <h2 class="os-h2 os-h2--name">Rebecca Zamolo</h2>
+      <p class="os-body">At 29, ulcerative colitis with pre-cancerous changes cost Rebecca her colon and large intestine. Her doctors told her children were still possible, it would just be harder. She filmed that too, and thirty-two million people watched it.</p>
+      <p class="os-body">When she and Matt decided to start a family in late 2019, they chose IVF deliberately, for the monitoring, because of what the surgery had done to her body. What followed was eighteen months of nightly injections, three egg retrievals, and two pregnancy losses. The second was a missed miscarriage at nine weeks, discovered at an appointment she had brought a camera to because it was supposed to be the announcement.</p>
+      <p class="os-quote">“Society tells us as women that we have to keep this private. So you have no support system. And then if something goes wrong, you feel alone, because you haven’t told anyone.”</p>
+      <p class="os-body">She published that video anyway, on the exact date the announcement had been scheduled, to millions of people. <b>That is the decision the whole brand comes from.</b> Not the supplements. The willingness to say the thing out loud.</p>
+      <p class="os-body">A year later, on her third round, from her last remaining female embryo, the one with the worst odds, she posted her daughter’s birth.</p>
+      <p class="os-cite">“She beat out all the odds. She had the least chance of being successful out of anything and she was the one that came through.”</p>
+      <div class="os-vids">
+        <div class="os-vid">
+          <button data-open="video" data-video="clMF5cGitOE" aria-label="Play: We Lost Our Baby and I Am Not Pregnant Anymore">
+            <img src="assets/lp/yt-lost.jpg" alt="">
+            <span class="os-vid__play"><i><svg width="13" height="15" viewBox="0 0 17 19" aria-hidden="true"><path d="M16 8.2a1.5 1.5 0 010 2.6L2.7 18.3A1.5 1.5 0 010 17V2a1.5 1.5 0 012.2-1.3z" fill="#192333"/></svg></i></span>
+          </button>
+          <div class="os-vid__meta"><p>We Lost Our Baby and I Am Not Pregnant Anymore</p><p>7.4M views</p></div>
+        </div>
+        <div class="os-vid">
+          <button data-open="video" data-video="eXMs04uIcNM" aria-label="Play: I’M PREGNANT">
+            <img src="assets/lp/yt-pregnant.jpg" alt="">
+            <span class="os-vid__play"><i><svg width="13" height="15" viewBox="0 0 17 19" aria-hidden="true"><path d="M16 8.2a1.5 1.5 0 010 2.6L2.7 18.3A1.5 1.5 0 010 17V2a1.5 1.5 0 012.2-1.3z" fill="#192333"/></svg></i></span>
+          </button>
+          <div class="os-vid__meta"><p>I’M PREGNANT</p><p>5.1M views</p></div>
+        </div>
+        <div class="os-vid">
+          <button data-open="video" data-video="apetyGSD_RQ" aria-label="Play: Meeting Our Baby Girl For the First Time">
+            <img src="assets/lp/yt-birth.jpg" alt="">
+            <span class="os-vid__play"><i><svg width="13" height="15" viewBox="0 0 17 19" aria-hidden="true"><path d="M16 8.2a1.5 1.5 0 010 2.6L2.7 18.3A1.5 1.5 0 010 17V2a1.5 1.5 0 012.2-1.3z" fill="#192333"/></svg></i></span>
+          </button>
+          <div class="os-vid__meta"><p>Meeting Our Baby Girl For the First Time</p><p>21.5M views</p></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- THE QUESTION ----------------------------------------------------------- -->
-<!-- The hinge of the page. Tells the sequence and quotes her; never claims the
-     supplements caused the pregnancy. Round three also involved polyp-removal
-     surgery and a different embryo. -->
-<section class="sec navy">
-  <div class="wrap" style="max-width:820px">
-    <p class="eyebrow" style="color:var(--molo-sky-light)">The moment</p>
-    <h2 class="h2 full">After her second loss, her nurse asked her a question nobody else had.</h2>
-    <p class="pullquote" style="font-size:38px;max-width:none;margin:30px 0">“What are you taking?”</p>
-    <p>Rebecca said: a prenatal. Christina gave her a list, and told her to take it for three months.</p>
-    <p>Christina gave her a list, and told her to take it for three months.</p>
-    <p class="pullquote">“It was 14 giant horse pills and I took them every day because I wanted to get pregnant. I complained about it, but she told me that all her patients complain because it’s not fun.”</p>
-    <p style="font-size:14px;color:var(--molo-sky-light);font-weight:600">Rebecca Zamolo</p>
-    <p class="pullquote">“Once I got pregnant, I was happy to have gotten pregnant, but there had to be an easier way for women to find the right supplements that they need.”</p>
+<!-- THE MOMENT ------------------------------------------------------------- -->
+<section class="os-moment">
+  <div class="os-w os-w--720">
+    <p class="os-eyebrow">The moment</p>
+    <h2>After her second loss, her nurse asked her a question nobody else had.</h2>
+    <p class="os-moment__big">“What are you taking?”</p>
+    <p class="os-moment__say">Rebecca said: a prenatal. Christina gave her a list, and told her to take it for three months.</p>
+    <p class="os-moment__q">“It was 14 giant horse pills and I took them every day because I wanted to get pregnant. I complained about it, but she told me that all her patients complain because it’s not fun.”</p>
+    <p class="os-moment__who">Rebecca Zamolo</p>
+    <p class="os-moment__q os-moment__q--last">“Once I got pregnant, I was happy to have gotten pregnant, but there had to be an easier way for women to find the right supplements that they need.”</p>
   </div>
 </section>
 
 <!-- CHRISTINA -------------------------------------------------------------- -->
-<section class="sec cream pat-cream" id="christina">
-  <div class="wrap">
-    <div class="grid2 top">
-      <div class="center"><div class="round" style="margin:0 auto"><img src="assets/christina-westbrook-headshot.png" alt="Christina Westbrook, MBA, MSN"></div></div>
-      <div>
-        <p class="eyebrow">The nurse</p>
-        <h2 class="h2">Christina Westbrook, MBA, MSN</h2>
-        <p>In a fertility clinic, the nurse is the constant. She is the one running your bloodwork at seven in the morning, teaching you to give yourself the injection, calling with your numbers, and answering the question at nine at night that you did not want to put in an email. Christina has done that for thousands of women.</p>
-        <p>She holds an MBA and an MSN, she is the <b>Chief Nursing Officer</b> of a fertility clinic in Los Angeles, and she has held senior nursing roles across reproductive medicine for the better part of a decade.</p>
-        <p>Which means she has seen more real fertility routines than almost anyone, and she knows exactly where the distance opens between a protocol that looks right on paper and one a woman can actually keep for three months. <b>Both Molo formulas came out of a list she wrote by hand for a patient.</b> Neither started in a marketing meeting.</p>
+<section class="os pat-cream" id="christina">
+  <div class="os-w os-grid os-grid--chr">
+    <div class="os-chr-col" style="text-align:center">
+      <img class="os-headshot" src="assets/christina-westbrook-headshot.png" alt="Christina Westbrook, MBA, MSN">
+    </div>
+    <div>
+      <p class="os-eyebrow">The nurse</p>
+      <h2 class="os-h2 os-h2--name">Christina Westbrook, MBA, MSN</h2>
+      <p class="os-body">In a fertility clinic, the nurse is the constant. She is the one running your bloodwork at seven in the morning, teaching you to give yourself the injection, calling with your numbers, and answering the question at nine at night that you did not want to put in an email. Christina has done that for thousands of women.</p>
+      <p class="os-body">She holds an MBA and an MSN, she is the <b>Chief Nursing Officer</b> of a fertility clinic in Los Angeles, and she has held senior nursing roles across reproductive medicine for the better part of a decade.</p>
+      <p class="os-body" style="margin-bottom:24px">Which means she has seen more real fertility routines than almost anyone, and she knows exactly where the distance opens between a protocol that looks right on paper and one a woman can actually keep for three months. <b>Both Molo formulas came out of a list she wrote by hand for a patient.</b> Neither started in a marketing meeting.</p>
+      <div class="os-cards">
+        <div class="os-card"><h3>A career in fertility nursing</h3><p>Spent inside fertility clinics, and now running nursing for one</p></div>
+        <div class="os-card"><h3>Written for a patient, not a market</h3><p>Both formulas trace back to a list she wrote by hand for one woman who needed it</p></div>
+        <div class="os-card"><h3>Designed by women, for women</h3><p>Two founders. One wrote the protocol, one lived it</p></div>
       </div>
     </div>
-
-    <div class="grid3" style="margin-top:44px">
-      <div class="card"><h3 class="h4">A career in fertility nursing</h3><p>Spent inside fertility clinics, and now running nursing for one</p></div>
-      <div class="card"><h3 class="h4">Written for a patient, not a market</h3><p>Both formulas trace back to a list she wrote by hand for one woman who needed it</p></div>
-      <div class="card"><h3 class="h4">Designed by women, for women</h3><p>Two founders. One wrote the protocol, one lived it</p></div>
-    </div>
   </div>
 </section>
 
-<!-- WHAT THEY BUILT -------------------------------------------------------- -->
-<section class="sec">
-  <div class="wrap-narrow">
-    <p class="eyebrow">The product</p>
-    <h2 class="h2 full">The same list. Two drinks instead of fourteen pills.</h2>
-    <p>Christina wrote the protocol. Rebecca lived it, complained about it, took every pill anyway, and then said out loud that there had to be an easier way. Molo is what the two of them built next.</p>
-    <p><b>Ovulation</b> carries myo-inositol and D-chiro-inositol at the 40:1 ratio the research uses, with Caronositol®, MenaQ7® K2, algal D3 and chelated zinc. <b>Prenatal</b> carries 600 mcg of folate in the active methylfolate form, with vitamin C, vitamin D, CoQ10 and ginger root.</p>
-    <p>Studied ingredient forms, third-party tested, made in the USA, no added sugar, and gentle enough to take every morning without dreading it. Two stick packs you stir into water, so the version you actually finish is the version you are on.</p>
-    <p style="margin-top:26px"><a class="btn btn-lg" href="protocol.html">See the Protocol →</a></p>
+<!-- THE PRODUCT ------------------------------------------------------------ -->
+<section class="os" style="background:#fff">
+  <div class="os-w os-w--860">
+    <p class="os-eyebrow">The product</p>
+    <h2 class="os-h2">The same list. Two drinks instead of fourteen pills.</h2>
+    <p class="os-body">Christina wrote the protocol. Rebecca lived it, complained about it, took every pill anyway, and then said out loud that there had to be an easier way. Molo is what the two of them built next.</p>
+    <p class="os-body"><b>Ovulation</b> carries myo-inositol and D-chiro-inositol at the 40:1 ratio the research uses, with Caronositol®, MenaQ7® K2, algal D3 and chelated zinc. <b>Prenatal</b> carries 600 mcg of folate in the active methylfolate form, with vitamin C, vitamin D, CoQ10 and ginger root.</p>
+    <p class="os-body" style="margin-bottom:24px">Studied ingredient forms, third-party tested, made in the USA, no added sugar, and gentle enough to take every morning without dreading it. Two stick packs you stir into water, so the version you actually finish is the version you are on.</p>
+    <a class="os-cta" href="protocol.html">See the Protocol →</a>
   </div>
 </section>
 
-<!-- SCALE ------------------------------------------------------------------ -->
-<section class="sec cream">
-  <div class="wrap">
-    <div class="center" style="margin-bottom:40px">
-      <p class="eyebrow">Why this matters</p>
-      <h2 class="h2 full">If this is your year, you are in a very large room.</h2>
+<!-- WHY THIS MATTERS ------------------------------------------------------- -->
+<section class="os" style="background:var(--molo-cream)">
+  <div class="os-w os-w--1100">
+    <div style="text-align:center;margin-bottom:40px">
+      <p class="os-eyebrow">Why this matters</p>
+      <h2 class="os-h2" style="margin:0">If this is your year, you are in a very large room.</h2>
     </div>
-    <div class="statgrid">
-      <div class="card center"><p class="n">1 in 6</p><p>adults worldwide experience infertility at some point</p></div>
-      <div class="card center"><p class="n">1 in 10</p><p>women of childbearing age have PCOS</p></div>
-      <div class="card center"><p class="n">12%</p><p>of women have difficulty getting pregnant or carrying to term</p></div>
+    <div class="os-stats">
+      <div class="os-stat"><p class="n">1 in 6</p><p>adults worldwide experience infertility at some point</p></div>
+      <div class="os-stat"><p class="n">1 in 10</p><p>women of childbearing age have PCOS</p></div>
+      <div class="os-stat"><p class="n">12%</p><p>of women have difficulty getting pregnant or carrying to term</p></div>
     </div>
-    <div class="statgrid statgrid--2">
-      <div class="card center"><p class="n">$10,000+</p><p>is a common out-of-pocket cost for fertility services, usually not covered by insurance</p></div>
-      <div class="card center"><p class="n">33%</p><p>of Americans have used fertility treatment or know someone who has</p></div>
+    <div class="os-stats os-stats--2">
+      <div class="os-stat"><p class="n">$10,000+</p><p>is a common out-of-pocket cost for fertility services, usually not covered by insurance</p></div>
+      <div class="os-stat"><p class="n">33%</p><p>of Americans have used fertility treatment or know someone who has</p></div>
     </div>
-    <p class="statnote">Most of the women in those numbers are handling it quietly, the way Rebecca did until she decided not to.</p>
+    <p class="os-statnote">Most of the women in those numbers are handling it quietly, the way Rebecca did until she decided not to.</p>
   </div>
 </section>
 
 <!-- CLOSER ----------------------------------------------------------------- -->
-<section class="sec-sm navy closer">
-  <img class="closer__bg" src="assets/rebecca-with-toddler-outdoors.png" alt="" loading="lazy">
-  <div class="wrap center" style="position:relative">
-    <h2 class="h2 full" style="margin-bottom:20px">Empower your journey to motherhood.</h2>
-    <p style="margin:0 auto 26px;max-width:52ch">Two jobs. One routine. Better outcomes.</p>
-    <p><a class="btn btn-cream btn-lg" href="protocol.html">Start the Protocol · $1.77/day</a></p>
+<section class="os-closer">
+  <img class="os-closer__bg" src="assets/rebecca-with-toddler-outdoors.png" alt="" loading="lazy">
+  <div class="os-w os-w--820 os-closer__in">
+    <h2>Empower your journey to motherhood.</h2>
+    <p class="os-closer__sub">Two jobs. One routine. Better outcomes.</p>
+    <a class="os-cta os-cta--cream" href="protocol.html">Start the Protocol · $1.77/day</a>
   </div>
 </section>
 </main>
