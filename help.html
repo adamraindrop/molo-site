@@ -21,13 +21,6 @@
   font-family:var(--molo-font-display);font-size:17px}
 .step p{margin:7px 0 0}
 .inforow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-/* Right column is prose, not figures, so it must be allowed to wrap. */
-.shiptbl .val{text-align:right;font-weight:600;color:var(--molo-navy);font-size:14.5px}
-@media(max-width:640px){
-  .shiptbl .tbl{table-layout:fixed;width:100%}
-  .shiptbl .tbl td:first-child{width:42%}
-  .shiptbl .val{font-size:13px;text-align:left}
-}
 @media(max-width:960px){.inforow{grid-template-columns:minmax(0,1fr)}}
 </style>
 </head>
@@ -81,30 +74,35 @@
 
 <!-- GUARANTEE -------------------------------------------------------------- -->
 <section class="sec tint" id="guarantee">
-  <div class="wrap">
-    <div class="center" style="margin-bottom:34px">
-      <p class="eyebrow">Our promise</p>
-      <h2 class="h2 full">Ninety days is the ask. So ninety days is the guarantee.</h2>
-      <p style="max-width:64ch">We ask you for a full window, because anything shorter cannot tell you anything, and we would rather say that plainly than sell you one month and hope.</p>
+  <div class="wrap-narrow" style="text-align:center;max-width:860px">
+    <p class="eyebrow" style="margin:0 0 14px">Our promise</p>
+    <h2 class="h2 full">Ninety days is the ask. So ninety days is the guarantee.</h2>
+    <p style="max-width:58ch;margin:0 auto 28px">We ask you for a full window, because anything shorter cannot
+      tell you anything, and we would rather say that plainly than sell you one month and hope.</p>
+
+    <div class="card" style="padding:36px 40px;margin-bottom:28px">
+      <p class="gtee__num">90 <span>DAY</span></p>
+      <p class="gtee__label">Window guarantee</p>
+      <p style="margin:0;font-size:15.5px;line-height:1.6;max-width:none">Take it every day for as long as you
+        have it. If it was not easier to keep than what you were doing before, email us any time within 120 days
+        of your first order and we will refund it. <b>Open bag is fine. No return shipping. Keep the shaker.</b></p>
     </div>
 
-    <div class="grid2 top">
-      <div class="card">
-        <p class="d" style="font-family:var(--molo-font-display);font-size:30px;margin:0 0 6px">The 90-Day Window Guarantee</p>
-        <p>Take it every day for as long as you have it. If it was not easier to keep than what you were doing before, email us any time within 120 days of your first order and we will refund it.</p>
-        <p><b>Open bag is fine. No return shipping. Keep the shaker.</b></p>
-        <p style="margin-top:18px">We will not guarantee you a pregnancy. Nobody honest can. What we will guarantee is that this is something you can actually stay on for three months, and if it turns out it is not, you should not be paying for it.</p>
-      </div>
-      <div>
-        <h3 class="h3">How to use it</h3>
-        <div class="steps">
-          <div class="step"><p>Email us at <b>support@molotime.com</b> with your order number, any time within 120 days of your first order.</p></div>
-          <div class="step"><p>Tell us what did not work. One or two sentences is plenty, and it genuinely helps us.</p></div>
-          <div class="step"><p>We refund the purchase price to your original payment method, usually within 3 to 5 business days.</p></div>
-        </div>
-        <p style="margin-top:22px"><b>No form to fill out. No bag to ship back. No restocking fee. No return shipping deducted.</b></p>
-      </div>
+    <h3 class="h3" style="font-size:19px;margin:0 0 16px">How to use it</h3>
+    <div class="gtee__steps">
+      <div class="gtee__step"><span>1</span><p>Email us at <b>support@molotime.com</b> with your order number,
+        any time within 120 days of your first order.</p></div>
+      <div class="gtee__step"><span>2</span><p>Tell us what did not work. One or two sentences is plenty, and
+        it genuinely helps us.</p></div>
+      <div class="gtee__step"><span>3</span><p>We refund the purchase price to your original payment method,
+        usually within a few business days.</p></div>
     </div>
+
+    <p style="font-size:15px;font-weight:600;margin:0 auto 14px;max-width:none">No form to fill out. No bag to
+      ship back. No restocking fee. No return shipping deducted.</p>
+    <p style="font-size:14.5px;line-height:1.65;margin:0 auto;max-width:62ch">We will not guarantee you a
+      pregnancy. Nobody honest can. What we will guarantee is that this is something you can actually stay on
+      for three months, and if it turns out it is not, you should not be paying for it.</p>
   </div>
 </section>
 
@@ -125,14 +123,12 @@
 <section class="sec cream" id="shipping">
   <div class="wrap-narrow">
     <h2 class="h2 full" style="margin-bottom:24px">Shipping</h2>
-    <div class="tblcard shiptbl" style="margin-bottom:40px">
-      <table class="tbl"><tbody>
-        <tr><td><p class="rowname">Free shipping</p></td><td class="val">On every order, no minimum</td></tr>
-        <tr><td><p class="rowname">Processing</p></td><td class="val">Ships the next business day</td></tr>
-        <tr><td><p class="rowname">Delivery</p></td><td class="val">2 to 5 business days within the continental US</td></tr>
-        <tr><td><p class="rowname">International</p></td><td class="val">US only for now</td></tr>
-        <tr><td><p class="rowname">Tracking</p></td><td class="val">Emailed as soon as the label is created</td></tr>
-      </tbody></table>
+    <div class="kvgrid" style="margin-bottom:40px">
+      <div class="kvgrid__k">Free shipping</div><div class="kvgrid__v">On every order, no minimum</div>
+      <div class="kvgrid__k">Processing</div><div class="kvgrid__v">Ships the next business day</div>
+      <div class="kvgrid__k">Delivery</div><div class="kvgrid__v">2 to 5 business days within the continental US</div>
+      <div class="kvgrid__k">International</div><div class="kvgrid__v">US only for now</div>
+      <div class="kvgrid__k kvgrid__last">Tracking</div><div class="kvgrid__v kvgrid__last">Emailed as soon as the label is created</div>
     </div>
 
     <h2 class="h2 full" id="subscription" style="margin-bottom:18px">Your subscription</h2>
@@ -152,13 +148,13 @@
     <div class="center" style="margin-bottom:28px"><h2 class="h2 full">Every question, answered</h2></div>
 
     <div class="topicrow" data-chips="#faqlist" style="justify-content:center;margin-bottom:26px">
-      <button type="button" class="topic" aria-pressed="true" data-chip="all">All</button>
-      <button type="button" class="topic" aria-pressed="false" data-chip="start">Getting started</button>
-      <button type="button" class="topic" aria-pressed="false" data-chip="products">The products</button>
-      <button type="button" class="topic" aria-pressed="false" data-chip="taking">Taking it</button>
-      <button type="button" class="topic" aria-pressed="false" data-chip="safety">Safety</button>
-      <button type="button" class="topic" aria-pressed="false" data-chip="orders">Orders</button>
-      <button type="button" class="topic" aria-pressed="false" data-chip="returns">Returns</button>
+      <button type="button" class="topic topic--filter" aria-pressed="true" data-chip="all">All</button>
+      <button type="button" class="topic topic--filter" aria-pressed="false" data-chip="start">Getting started</button>
+      <button type="button" class="topic topic--filter" aria-pressed="false" data-chip="products">The products</button>
+      <button type="button" class="topic topic--filter" aria-pressed="false" data-chip="taking">Taking it</button>
+      <button type="button" class="topic topic--filter" aria-pressed="false" data-chip="safety">Safety</button>
+      <button type="button" class="topic topic--filter" aria-pressed="false" data-chip="orders">Orders</button>
+      <button type="button" class="topic topic--filter" aria-pressed="false" data-chip="returns">Returns</button>
     </div>
 
     <div id="faqlist">

@@ -114,11 +114,11 @@ b,strong{font-weight:600}
   border-radius:999px;padding:9px 20px 9px 12px;background:#fff;
   font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--molo-navy)}
 .pillrow{display:flex;flex-wrap:wrap;gap:10px}
-.stars{color:var(--molo-blue);letter-spacing:.08em;font-size:15px}
+.stars{color:var(--molo-blue);letter-spacing:.08em;font-size:14px}
 /* Half star: a gray base string with a blue copy clipped over it. */
 .rating{position:relative;display:inline-block;color:var(--molo-gray-ca);letter-spacing:.08em;font-size:15px}
 .rating i{position:absolute;left:0;top:0;overflow:hidden;white-space:nowrap;color:var(--molo-blue);font-style:normal}
-.byline{font-size:13px;color:var(--molo-gray-98);font-weight:600;margin:8px 0 0}
+.byline{font-size:12.5px;color:var(--molo-gray-3a);font-weight:600;margin:12px 0 0}
 
 .card{background:#fff;border-radius:40px;box-shadow:0 8px 28px rgba(4,36,54,.08);padding:32px}
 .card-hover{transition:box-shadow .2s,transform .2s}
@@ -151,16 +151,61 @@ b,strong{font-weight:600}
 .rowname{font-weight:600;margin:0}
 .rowsub{font-size:13px;color:var(--molo-gray-3a);margin:2px 0 0;line-height:1.4;max-width:none}
 
-/* VS table: the Molo column is one continuous navy block with rounded ends. */
-.vstbl .tbl td:nth-child(2),.vstbl .tbl th:nth-child(2){background:var(--molo-navy);color:var(--molo-cream);
-  text-align:center;font-weight:600}
-.vstbl .tbl th:nth-child(2){border-radius:16px 16px 0 0}
-.vstbl .tbl tbody tr:last-child td:nth-child(2){border-radius:0 0 16px 16px}
-.vstbl .tbl td:nth-child(3){color:var(--molo-gray-98);text-align:center}
-.vstbl .tbl td:first-child{font-weight:600;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase}
-.vstbl .tbl tbody tr{border-top:0}
-.vstbl .tbl tbody td:first-child,.vstbl .tbl tbody td:nth-child(3){border-top:1px solid var(--molo-gray-e5)}
+/* VS comparison. The mocks build this as grid rows, not a table: the Molo
+   column carries no top borders, which is what makes it read as one continuous
+   navy block running from the header into the last row. A <table> cannot do
+   that without fighting border-collapse. */
+.vsgrid{background:#fff;border:1px solid var(--molo-gray-e5);border-radius:24px;overflow:hidden;padding-top:14px}
+.vsgrid__row{display:grid;grid-template-columns:34% 33% 33%;align-items:stretch}
+.vsgrid__spacer{}
+.vsgrid__brand{background:var(--molo-navy);color:var(--molo-cream);font-family:var(--molo-font-display);
+  font-weight:400;font-size:15px;letter-spacing:.08em;text-transform:uppercase;text-align:center;
+  padding:22px 12px;border-radius:16px 16px 0 0}
+.vsgrid__them{color:var(--molo-gray-98);text-align:center;font-family:var(--molo-font-display);
+  font-weight:400;font-size:15px;letter-spacing:.08em;text-transform:uppercase;padding:22px 12px}
+.vsgrid__label{padding:15px 20px;font-weight:600;font-size:12.5px;letter-spacing:.08em;
+  text-transform:uppercase;border-top:1px solid var(--molo-gray-e5);display:flex;align-items:center}
+.vsgrid__molo{background:var(--molo-navy);color:var(--molo-cream);font-weight:600;text-align:center;
+  padding:15px 10px;display:flex;align-items:center;justify-content:center;gap:6px;font-size:14.5px}
+.vsgrid__row:last-child .vsgrid__molo{border-radius:0 0 16px 16px}
+.vsgrid__val{padding:15px 20px;color:var(--molo-gray-98);text-align:center;
+  border-top:1px solid var(--molo-gray-e5);display:flex;align-items:center;justify-content:center;font-size:14.5px}
+.vsnote{font-size:11.5px;color:var(--molo-gray-3a);margin:16px 0 0;text-align:center;font-style:italic;max-width:none}
 .tick{color:var(--molo-sky-light)}
+
+/* Cross-sell comparison: 40/30/30, navy head with the Protocol column in blue. */
+.xgrid{background:#fff;border-radius:24px;box-shadow:0 8px 28px rgba(4,36,54,.08);overflow:hidden;margin-bottom:22px}
+.xgrid__head{display:grid;grid-template-columns:40% 30% 30%;background:var(--molo-navy);color:#fff;
+  font-family:var(--molo-font-display);font-weight:400;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.xgrid__head>div{padding:14px 10px;text-align:center}
+.xgrid__head>div:first-child{padding:14px 20px;text-align:left}
+.xgrid__head>div:last-child{background:var(--molo-blue)}
+.xgrid__row{display:grid;grid-template-columns:40% 30% 30%;border-top:1px solid var(--molo-gray-e5);font-size:14px}
+.xgrid__row>div{padding:12px 10px;text-align:center}
+.xgrid__row>div:first-child{padding:12px 20px;text-align:left;font-weight:600}
+.xgrid__row>div:nth-child(2){color:#6b7480}
+.xgrid__row>div:last-child{font-weight:600;background:var(--surface-tint-soft)}
+
+/* "The category's problem" card: flex rows, both halves muted, tinted payoff. */
+.probcard{background:#fff;border-radius:24px;box-shadow:0 8px 28px rgba(4,36,54,.08);overflow:hidden}
+.probcard__head{background:var(--molo-navy);color:#fff;text-align:center;padding:16px 22px;
+  font-family:var(--molo-font-display);font-weight:400;font-size:14px;letter-spacing:.1em;text-transform:uppercase}
+.probcard__row{display:flex;justify-content:space-between;gap:16px;padding:14px 24px;border-top:1px solid var(--molo-gray-e5)}
+.probcard__row span:first-child{font-weight:600;color:#6b7480;font-size:14.5px}
+.probcard__row span:last-child{color:#6b7480;font-size:14px;text-align:right}
+.probcard__foot{padding:20px 24px;background:var(--surface-tint-soft);
+  border-top:1px solid var(--molo-gray-e5);text-align:center}
+.probcard__foot .nm{font-family:var(--molo-font-display);font-weight:400;font-size:19px;
+  color:var(--molo-blue);text-transform:uppercase;margin:0 0 6px}
+.probcard__foot p{margin:0;font-weight:600;font-size:14.5px;max-width:none}
+
+/* Flavour cards in the format section: image over a label strip. */
+.flavcards{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:520px}
+.flavcard{border:2px solid var(--molo-gray-e5);border-radius:24px;overflow:hidden;background:#fff}
+.flavcard img{width:100%;height:160px;object-fit:cover;display:block}
+.flavcard div{padding:12px 16px}
+.flavcard .nm{margin:0;font-weight:600;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase}
+.flavcard .sub{margin:3px 0 0;font-size:12.5px;color:var(--molo-gray-3a);max-width:none}
 
 /* ---------- tabs + segmented control ------------------------------------ */
 .utabs{display:flex;border-bottom:1px solid var(--molo-gray-e5)}
@@ -290,15 +335,15 @@ b,strong{font-weight:600}
 .brandband p{color:rgba(255,255,255,.88)}
 
 /* ---------- review wall -------------------------------------------------- */
-.revgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.rev{background:#fff;border-radius:28px;padding:26px;box-shadow:0 8px 28px rgba(4,36,54,.08)}
-.rev p{font-size:15px;margin:12px 0 0;max-width:none}
+.revgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;
+  max-width:1160px;margin:0 auto}
+.revgrid--5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.rev{background:#fff;border-radius:24px;padding:24px 22px}
+.rev p{font-size:13.5px;line-height:1.55;margin:10px 0 0;max-width:none}
 
 /* ---------- "category's problem" table ----------------------------------- */
 /* Two narrow columns both wrap at phone width and the rows lose their rhythm,
    so each row restacks into a label over a full-width statement. */
-.probtbl .tbl td:first-child{font-weight:600}
-.probtbl .tbl td:last-child{color:var(--molo-gray-3a)}
 
 /* ---------- guarantee block --------------------------------------------- */
 /* Traced from Protocol.dc.html: white section, 88px padding, 860px centred
@@ -306,6 +351,11 @@ b,strong{font-weight:600}
    display headline, and a CREAM card at 640px with 36/40 padding. */
 .gtee{padding:88px 0;background:#fff}
 .gtee__inner{max-width:860px;margin:0 auto;padding:0 40px;text-align:center}
+.gtee__steps{display:grid;gap:14px;margin:0 0 24px;text-align:left}
+.gtee__step{display:flex;gap:16px;align-items:flex-start;background:#fff;border-radius:20px;padding:18px 22px}
+.gtee__step span{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--molo-blue);
+  color:var(--molo-cream);display:grid;place-items:center;font-weight:600;font-size:14px}
+.gtee__step p{margin:0;font-size:14.5px;line-height:1.6;max-width:none}
 .gtee__icon{color:var(--molo-blue);display:flex;justify-content:center;margin-bottom:18px}
 .gtee__eyebrow{margin:0 0 18px}
 .gtee h2{font-family:var(--molo-font-display);font-weight:400;font-size:30px;line-height:1.25;
@@ -429,7 +479,19 @@ b,strong{font-weight:600}
 .topic{border:1.5px solid var(--molo-gray-e5);background:#fff;border-radius:999px;padding:11px 16px;min-height:44px;
   font-weight:600;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;
   color:var(--molo-navy);transition:all .2s}
-.topic[aria-pressed=true]{background:var(--molo-navy);border-color:var(--molo-navy);color:#fff}
+.topic[aria-pressed=true]{background:var(--surface-tint-soft);border-color:var(--molo-blue);color:var(--molo-navy)}
+/* Filter chips are the mocks' other chip treatment: 2px blue, filled when on. */
+.topic--filter{border:2px solid var(--molo-blue);padding:11px 20px;color:var(--molo-blue)}
+.topic--filter[aria-pressed=true]{background:var(--molo-blue);border-color:var(--molo-blue);color:var(--molo-cream)}
+
+/* Key/value card (Help shipping). The mocks use a 32/68 grid rather than a
+   table, which is what keeps the value column left-aligned and wrapping. */
+.kvgrid{background:#fff;border-radius:24px;box-shadow:0 8px 28px rgba(4,36,54,.08);
+  overflow:hidden;display:grid;grid-template-columns:32% 68%;font-size:14.5px}
+.kvgrid__k,.kvgrid__v{padding:15px 24px;border-bottom:1px solid var(--molo-gray-e5)}
+.kvgrid__k{font-weight:600}
+.kvgrid__v{color:var(--molo-gray-3a)}
+.kvgrid__k.kvgrid__last,.kvgrid__v.kvgrid__last{border-bottom:0}
 
 /* ---------- cart --------------------------------------------------------- */
 .cartgrid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:40px;align-items:start}
@@ -519,13 +581,20 @@ b,strong{font-weight:600}
     font-size:11.5px;line-height:1;text-align:left}
   .trusttile svg{margin:0!important;width:17px;height:17px;flex:0 0 auto}
 
-  /* Comparison table stays a table; the toggle above it picks the competitor.
-     Killing the uppercase tracking on the feature column is what makes it fit. */
-  .vstbl .tbl{table-layout:fixed;width:100%}
-  .vstbl .tbl td:first-child,.vstbl .tbl th:first-child{width:34%}
-  .vstbl .tbl td,.vstbl .tbl th{padding:11px 7px;font-size:12px;letter-spacing:.01em;
-    word-break:break-word;line-height:1.35}
-  .vstbl .tbl td:first-child{text-transform:none;letter-spacing:0}
+  /* Comparison grids keep their three columns; the tracking on the label column
+     is what pushes them past 335, so it goes. */
+  .vsgrid__label,.vsgrid__molo,.vsgrid__val,.vsgrid__brand,.vsgrid__them{
+    padding:11px 8px;font-size:12px;letter-spacing:.01em;word-break:break-word;line-height:1.35}
+  .vsgrid__label{text-transform:none;letter-spacing:0}
+  .vsgrid__brand,.vsgrid__them{font-size:12.5px;padding:15px 8px}
+  .xgrid__head,.xgrid__row{font-size:12px}
+  .xgrid__head>div,.xgrid__row>div{padding:10px 6px}
+  .xgrid__head>div:first-child,.xgrid__row>div:first-child{padding:10px 12px}
+  .probcard__row{padding:12px 16px;gap:12px}
+  .probcard__row span:first-child{font-size:13px}
+  .probcard__row span:last-child{font-size:12.5px}
+  .flavcards{max-width:none}
+  .flavcard img{height:120px}
   .seg{display:grid!important;width:100%;border:0;padding:0;background:transparent;gap:8px}
   .seg button{padding:14px 16px;font-size:12px;letter-spacing:.1em;
     border:1.5px solid var(--molo-gray-e5);border-radius:999px;background:#fff}
@@ -535,15 +604,10 @@ b,strong{font-weight:600}
   .tbl td,.tbl th{padding:11px 12px;font-size:13.5px}
   .rowsub{font-size:12.5px}
   .acc summary{font-size:17px;padding:18px 0}
-  .revgrid{grid-template-columns:minmax(0,1fr);gap:14px}
-  .probtbl .tbl,.probtbl .tbl thead,.probtbl .tbl tbody,.probtbl .tbl tr{display:block}
-  .probtbl .tbl thead th{display:block;width:auto;padding:13px 20px;font-size:12px;letter-spacing:.08em}
-  .probtbl .tbl tbody tr{padding:14px 20px;border-top:1px solid var(--molo-gray-e5)}
-  .probtbl .tbl tbody tr:first-child{border-top:0}
-  .probtbl .tbl tbody td{display:block;padding:0;width:auto}
-  .probtbl .tbl tbody td:first-child{font-size:11px;font-weight:600;letter-spacing:.13em;
+  .revgrid,.revgrid--5{grid-template-columns:minmax(0,1fr);gap:14px}
+  .kvgrid{grid-template-columns:38% 62%;font-size:13.5px}
+  .kvgrid__k,.kvgrid__v{padding:12px 14px}
     text-transform:uppercase;color:var(--molo-blue);margin-bottom:3px}
-  .probtbl .tbl tbody td:last-child{font-size:14.5px;line-height:1.45}
   .gtee{padding:48px 0}
   .gtee__inner{padding:0 20px}
   .gtee h2{font-size:23px}

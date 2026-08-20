@@ -235,7 +235,8 @@
           if (!key) return;
           var scope = document.querySelector(g.getAttribute('data-chips')) || document;
           scope.querySelectorAll('[data-chip-group]').forEach(function (item) {
-            item.hidden = key !== 'all' && item.getAttribute('data-chip-group') !== key;
+            var tags = (item.getAttribute('data-chip-group') || '').split(/\s+/);
+            item.hidden = key !== 'all' && tags.indexOf(key) === -1;
           });
         });
       });

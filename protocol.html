@@ -56,7 +56,7 @@
           <p class="byline" style="margin:0">Jess · Verified Buyer</p>
         </div>
 
-        <div class="giftband shakercard" style="margin-top:16px">
+        <div class="giftband" style="margin-top:16px">
           <img src="assets/shaker-orange-drink-clean.jpg" alt="">
           <p><b>Free Molo shaker.</b> With any 90-day plan. The powder mixes smoother when it is shaken, so we send you the bottle for it.</p>
         </div>
@@ -67,7 +67,7 @@
         <!-- 4.6/68 is Prenatal only. Ovulation is unrated and says so. Never fused. -->
         <p class="bb__social" style="flex-wrap:wrap">
           <b>Molo Prenatal:</b>
-          <span class="rating" aria-label="Rated 4.6 out of 5">★★★★★<i style="width:92%">★★★★★</i></span>
+          <span class="rating" aria-label="Rated 4.6 out of 5">★★★★★<i style="width:90%">★★★★★</i></span>
           <span>4.6/5 (68)</span>
         </p>
         <p class="small" style="color:var(--molo-gray-3a);margin:0 0 12px">Ovulation is new and reviews are still coming in. · Nurse-formulated · Third-party tested</p>
@@ -260,27 +260,27 @@
         <p class="eyebrow">The format</p>
         <h2 class="h2">An easy and enjoyable routine that you can stick to.</h2>
         <p>Molo is a powder you stir into cold water, so there is nothing to swallow. Strawberry Kiwi or Black Cherry, sweetened with Reb M and monk fruit, no added sugar and nothing artificial. Taste is the first thing customers write about, which tells you a lot about what actually keeps a routine going.</p>
-        <div class="flavors" style="margin-top:26px">
-          <div class="flavor" style="cursor:default"><span class="sw" style="background:#F0567F"></span><span class="nm" style="display:block;text-align:left;padding:14px 16px"><b>Strawberry Kiwi</b><br><span style="font-weight:500;color:var(--molo-gray-3a)">Bright and light</span></span></div>
-          <div class="flavor" style="cursor:default"><span class="sw" style="background:#8E1F3C"></span><span class="nm" style="display:block;text-align:left;padding:14px 16px"><b>Black Cherry</b><br><span style="font-weight:500;color:var(--molo-gray-3a)">Deeper, less sweet</span></span></div>
+        <div class="flavcards" style="margin-top:26px">
+          <div class="flavcard">
+            <img src="assets/library/flavor/macro-strawberry-kiwi.jpg" alt="Macro close-up of a kiwi slice" loading="lazy" width="720" height="720">
+            <div><p class="nm">Strawberry Kiwi</p><p class="sub">Bright and light</p></div>
+          </div>
+          <div class="flavcard">
+            <img src="assets/library/flavor/macro-black-cherry.jpg" alt="Macro close-up of a halved black cherry" loading="lazy" width="720" height="720">
+            <div><p class="nm">Black Cherry</p><p class="sub">Deeper, less sweet</p></div>
+          </div>
         </div>
       </div>
 
-      <!-- The category's problem, restacked on phones: two narrow columns both
-           wrap at 335 and the rows lose their rhythm. -->
-      <div class="tblcard probtbl">
-        <table class="tbl">
-          <thead><tr><th colspan="2" style="text-align:center">Per day, the category’s problem</th></tr></thead>
-          <tbody>
-            <tr><td>Capsule prenatals</td><td>2 to 8 pills, on an unpredictable stomach</td></tr>
-            <tr><td>Fertility stacks</td><td>5 to 7 separate bottles to remember</td></tr>
-            <tr><td>Gummy prenatals</td><td>Added sugar, and almost never any iron</td></tr>
-            <tr><td>Softgel CoQ10</td><td>The aftertaste everyone reviews</td></tr>
-          </tbody>
-        </table>
-        <div class="probpayoff" style="padding:22px;text-align:center;background:var(--surface-tint-soft);border-top:1px solid var(--molo-gray-e5)">
-          <p class="h3" style="color:var(--molo-blue);margin:0 0 6px;text-transform:uppercase;font-size:20px">The Molo Protocol</p>
-          <p style="margin:0 auto;max-width:none;font-weight:600;font-size:15px">2 drinks · 0 pills · 0g added sugar · mix into water</p>
+      <div class="probcard">
+        <div class="probcard__head">Per day, the category’s problem</div>
+        <div class="probcard__row"><span>Capsule prenatals</span><span>2 to 8 pills, on an unpredictable stomach</span></div>
+        <div class="probcard__row"><span>Fertility stacks</span><span>5 to 7 separate bottles to remember</span></div>
+        <div class="probcard__row"><span>Gummy prenatals</span><span>Added sugar, and almost never any iron</span></div>
+        <div class="probcard__row"><span>Softgel CoQ10</span><span>The aftertaste everyone reviews</span></div>
+        <div class="probcard__foot">
+          <p class="nm">The Molo Protocol</p>
+          <p>2 drinks · 0 pills · 0g added sugar · mix into water</p>
         </div>
       </div>
     </div>
@@ -293,14 +293,14 @@
     <div class="center" style="margin-bottom:28px">
       <h2 class="h2 full">Join the women who stopped managing all the pills</h2>
       <p class="small" style="color:var(--molo-gray-3a)">
-        Molo Prenatal: <span class="rating" aria-label="Rated 4.6 out of 5">★★★★★<i style="width:92%">★★★★★</i></span>
+        Molo Prenatal: <span class="rating" aria-label="Rated 4.6 out of 5">★★★★★<i style="width:90%">★★★★★</i></span>
         4.6/5 across 68 reviews. Ovulation is new and reviews are still coming in.</p>
     </div>
 
     <div class="topicrow" data-chips="#revwall" style="justify-content:center;margin-bottom:24px">
-      <button type="button" class="topic" aria-pressed="true" data-chip="all">All</button>
-      <button type="button" class="topic" aria-pressed="false" data-chip="taste">Taste</button>
-      <button type="button" class="topic" aria-pressed="false" data-chip="ease">Ease</button>
+      <button type="button" class="topic topic--filter" aria-pressed="true" data-chip="all">All</button>
+      <button type="button" class="topic topic--filter" aria-pressed="false" data-chip="taste">Taste</button>
+      <button type="button" class="topic topic--filter" aria-pressed="false" data-chip="ease">Ease</button>
     </div>
 
     <div class="revgrid" id="revwall">
@@ -308,9 +308,9 @@
       <div class="rev" data-chip-group="ease"><span class="stars">★★★★★</span><p>“Pre-measured stick packs, so there’s no guessing or swallowing pills.”</p><p class="byline">Coffee &amp; Feathers</p></div>
       <div class="rev" data-chip-group="taste"><span class="stars">★★★★☆</span><p>“Actually tasty and not overpowering. I was pleasantly surprised.”</p><p class="byline">Jess</p></div>
       <div class="rev" data-chip-group="ease"><span class="stars">★★★★☆</span><p>“You need at least 2-3 months to notice any difference in a supplement’s effects.”</p><p class="byline">Jess</p></div>
-      <div class="rev" data-chip-group="ease"><span class="stars">★★★★☆</span><p>“It is cheaper to buy something like this, where there are several supplements in a packet mix.”</p><p class="byline">Jess</p></div>
+      <div class="rev" data-chip-group="value"><span class="stars">★★★★☆</span><p>“It is cheaper to buy something like this, where there are several supplements in a packet mix.”</p><p class="byline">Jess</p></div>
       <div class="rev" data-chip-group="taste"><span class="stars">★★★★★</span><p>“Not only does this look like a quality supplement, but it tastes great.”</p><p class="byline">Dawn</p></div>
-      <div class="rev" data-chip-group="ease"><span class="stars">★★★★☆</span><p>“The stick packs are actually pleasant, easy to take with a little water.”</p><p class="byline">Sarah</p></div>
+      <div class="rev" data-chip-group="taste ease"><span class="stars">★★★★☆</span><p>“The stick packs are actually pleasant, easy to take with a little water.”</p><p class="byline">Sarah</p></div>
       <div class="rev" data-chip-group="ease"><span class="stars">★★★★★</span><p>“I love that it comes in pre-measured stick packs, so there is no guessing or swallowing pills.”</p><p class="byline">Emily</p></div>
       <div class="rev" data-chip-group="taste"><span class="stars">★★★★★</span><p>“Yummy.”</p><p class="byline">Adrianna · Verified Buyer</p></div>
       <div class="rev" data-chip-group="taste"><span class="stars">★★★★★</span><p>“Love the flavor.”</p><p class="byline">Verified Buyer</p></div>
@@ -336,42 +336,96 @@
         </div>
       </div>
 
-      <div class="vstbl tblcard" data-panel="ritual">
-        <table class="tbl">
-          <thead><tr><th></th><th>Molo Protocol</th><th>Ritual</th></tr></thead>
-          <tbody>
-            <tr><td>Myo-inositol + D-chiro</td><td>Both, at 40:1 <span class="tick">✓</span></td><td>Myo-inositol only</td></tr>
-            <tr><td>Methylfolate</td><td>Yes <span class="tick">✓</span></td><td>Yes</td></tr>
-            <tr><td>Format</td><td>2 drinks in water <span class="tick">✓</span></td><td>Capsules + powder</td></tr>
-            <tr><td>Pills per day</td><td>0 <span class="tick">✓</span></td><td>2</td></tr>
-            <tr><td>Per month</td><td>$49.99 <span class="tick">✓</span></td><td>$138.00</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <div class="vsgrid" data-panel="ritual">
+  <div class="vsgrid__row">
+    <div class="vsgrid__spacer"></div>
+    <div class="vsgrid__brand">Molo Protocol</div>
+    <div class="vsgrid__them">Ritual</div>
+  </div>
+  <div class="vsgrid__row">
+    <div class="vsgrid__label">Myo-inositol + D-chiro</div>
+    <div class="vsgrid__molo">Both, at 40:1 <span class="tick">✓</span></div>
+    <div class="vsgrid__val">Myo-inositol only</div>
+  </div>
+  <div class="vsgrid__row">
+    <div class="vsgrid__label">Methylfolate</div>
+    <div class="vsgrid__molo">Yes <span class="tick">✓</span></div>
+    <div class="vsgrid__val">Yes</div>
+  </div>
+  <div class="vsgrid__row">
+    <div class="vsgrid__label">Format</div>
+    <div class="vsgrid__molo">2 drinks in water <span class="tick">✓</span></div>
+    <div class="vsgrid__val">Capsules + powder</div>
+  </div>
+  <div class="vsgrid__row">
+    <div class="vsgrid__label">Pills per day</div>
+    <div class="vsgrid__molo">0 <span class="tick">✓</span></div>
+    <div class="vsgrid__val">2</div>
+  </div>
+  <div class="vsgrid__row">
+    <div class="vsgrid__label">Per month</div>
+    <div class="vsgrid__molo">$49.99 <span class="tick">✓</span></div>
+    <div class="vsgrid__val">$138.00</div>
+  </div>
+</div>
 
-      <div class="vstbl tblcard" data-panel="needed" hidden>
-        <table class="tbl">
-          <thead><tr><th></th><th>Molo Protocol</th><th>Needed</th></tr></thead>
-          <tbody>
-            <tr><td>Format</td><td>2 drinks in water <span class="tick">✓</span></td><td>Capsules</td></tr>
-            <tr><td>Pills per day</td><td>0 <span class="tick">✓</span></td><td>8</td></tr>
-            <tr><td>Prenatal per month</td><td>$49.99 <span class="tick">✓</span></td><td>$56.69</td></tr>
-            <tr><td>Their full plan</td><td>One routine <span class="tick">✓</span></td><td>$138.00/mo</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <div class="vsgrid" data-panel="needed" hidden>
+  <div class="vsgrid__row">
+    <div class="vsgrid__spacer"></div>
+    <div class="vsgrid__brand">Molo Protocol</div>
+    <div class="vsgrid__them">Needed</div>
+  </div>
+  <div class="vsgrid__row">
+    <div class="vsgrid__label">Format</div>
+    <div class="vsgrid__molo">2 drinks in water <span class="tick">✓</span></div>
+    <div class="vsgrid__val">Capsules</div>
+  </div>
+  <div class="vsgrid__row">
+    <div class="vsgrid__label">Pills per day</div>
+    <div class="vsgrid__molo">0 <span class="tick">✓</span></div>
+    <div class="vsgrid__val">8</div>
+  </div>
+  <div class="vsgrid__row">
+    <div class="vsgrid__label">Prenatal per month</div>
+    <div class="vsgrid__molo">$49.99 <span class="tick">✓</span></div>
+    <div class="vsgrid__val">$56.69</div>
+  </div>
+  <div class="vsgrid__row">
+    <div class="vsgrid__label">Their full plan</div>
+    <div class="vsgrid__molo">One routine <span class="tick">✓</span></div>
+    <div class="vsgrid__val">$138.00/mo</div>
+  </div>
+</div>
 
-      <div class="vstbl tblcard" data-panel="diy" hidden>
-        <table class="tbl">
-          <thead><tr><th></th><th>Molo Protocol</th><th>Building it yourself</th></tr></thead>
-          <tbody>
-            <tr><td>Bottles to reorder</td><td>0 <span class="tick">✓</span></td><td>7</td></tr>
-            <tr><td>Pills per day</td><td>0 <span class="tick">✓</span></td><td>8 to 14</td></tr>
-            <tr><td>Inositol ratio</td><td>40:1, branded <span class="tick">✓</span></td><td>Whatever you bought</td></tr>
-            <tr><td>Per month</td><td>$49.99 <span class="tick">✓</span></td><td>~$202</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <div class="vsgrid" data-panel="diy" hidden>
+  <div class="vsgrid__row">
+    <div class="vsgrid__spacer"></div>
+    <div class="vsgrid__brand">Molo Protocol</div>
+    <div class="vsgrid__them">Building it yourself</div>
+  </div>
+  <div class="vsgrid__row">
+    <div class="vsgrid__label">Bottles to reorder</div>
+    <div class="vsgrid__molo">0 <span class="tick">✓</span></div>
+    <div class="vsgrid__val">7</div>
+  </div>
+  <div class="vsgrid__row">
+    <div class="vsgrid__label">Pills per day</div>
+    <div class="vsgrid__molo">0 <span class="tick">✓</span></div>
+    <div class="vsgrid__val">8 to 14</div>
+  </div>
+  <div class="vsgrid__row">
+    <div class="vsgrid__label">Inositol ratio</div>
+    <div class="vsgrid__molo">40:1, branded <span class="tick">✓</span></div>
+    <div class="vsgrid__val">Whatever you bought</div>
+  </div>
+  <div class="vsgrid__row">
+    <div class="vsgrid__label">Per month</div>
+    <div class="vsgrid__molo">$49.99 <span class="tick">✓</span></div>
+    <div class="vsgrid__val">~$202</div>
+  </div>
+</div>
+      <p class="vsnote">Prices from each brand’s own storefront. Brand names are trademarks of their
+        respective owners. Molo is not affiliated with any of them.</p>
     </div>
   </div>
 </section>
@@ -436,7 +490,6 @@
 <section class="sec-sm brandband">
   <div class="wrap center">
     <h2 class="h2 full" style="margin-bottom:20px">Two jobs. One routine. Better outcomes.</h2>
-    <p style="margin:0 auto 26px;max-width:52ch">One decision instead of seven, and a routine you can actually keep.</p>
     <p style="margin-bottom:18px"><a class="btn btn-cream btn-lg" href="cart.html">Start my 90-day Protocol · $1.67/day</a></p>
     <p class="small" style="color:rgba(255,255,255,.7)">90-Day Window Guarantee · Free shipping · Pause or cancel anytime</p>
   </div>
