@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Help — Molo</title>
+<meta name="description" content="Shipping, returns, the 90-Day Window Guarantee, subscriptions, and every question we get asked.">
+<link rel="icon" href="assets/molo-heart-mark.svg">
+<link rel="stylesheet" href="_ds/molo-design-system-e2e87b0e-ba87-4c2c-8d2e-76acdc8a775e/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/molo-design-system-e2e87b0e-ba87-4c2c-8d2e-76acdc8a775e/tokens/colors.css">
+<link rel="stylesheet" href="_ds/molo-design-system-e2e87b0e-ba87-4c2c-8d2e-76acdc8a775e/tokens/typography.css">
+<link rel="stylesheet" href="_ds/molo-design-system-e2e87b0e-ba87-4c2c-8d2e-76acdc8a775e/tokens/geometry.css">
+<link rel="stylesheet" href="_ds/molo-design-system-e2e87b0e-ba87-4c2c-8d2e-76acdc8a775e/tokens/semantic.css">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.steps{counter-reset:s;display:grid;gap:16px;margin:24px 0 0}
+.step{display:grid;grid-template-columns:38px minmax(0,1fr);gap:14px;align-items:start}
+.step::before{counter-increment:s;content:counter(s);width:38px;height:38px;border-radius:50%;
+  background:var(--molo-blue);color:var(--molo-cream);display:grid;place-items:center;
+  font-family:var(--molo-font-display);font-size:17px}
+.step p{margin:7px 0 0}
+.inforow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+/* Right column is prose, not figures, so it must be allowed to wrap. */
+.shiptbl .val{text-align:right;font-weight:600;color:var(--molo-navy);font-size:14.5px}
+@media(max-width:640px){
+  .shiptbl .tbl{table-layout:fixed;width:100%}
+  .shiptbl .tbl td:first-child{width:42%}
+  .shiptbl .val{font-size:13px;text-align:left}
+}
+@media(max-width:960px){.inforow{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body data-page="help">
+<div id="site-header"></div>
+
+<main>
+
+<section class="sec-sm cream">
+  <div class="wrap">
+    <p class="eyebrow">Help</p>
+    <h1 class="h1">Ask us anything. A real person answers.</h1>
+    <p class="lead">We are a small team, and we would genuinely rather hear from you before you order than after. Most questions come back the same day.</p>
+  </div>
+</section>
+
+<!-- CONTACT ---------------------------------------------------------------- -->
+<section class="sec" id="contact">
+  <div class="wrap">
+    <div class="grid2 top">
+      <div>
+        <h2 class="h2">What can we help with?</h2>
+        <form onsubmit="return false">
+          <label class="field"><span>Name</span><input type="text" name="name" autocomplete="name"></label>
+          <label class="field"><span>Email</span><input type="email" name="email" autocomplete="email"></label>
+          <label class="field"><span>Order number (if you have one)</span><input type="text" name="order"></label>
+
+          <p class="bb__label">Topic</p>
+          <div class="topicrow" data-chips>
+            <button type="button" class="topic" aria-pressed="true">Choosing a product</button>
+            <button type="button" class="topic" aria-pressed="false">My order</button>
+            <button type="button" class="topic" aria-pressed="false">My subscription</button>
+            <button type="button" class="topic" aria-pressed="false">Returns and refunds</button>
+            <button type="button" class="topic" aria-pressed="false">Ingredients and safety</button>
+            <button type="button" class="topic" aria-pressed="false">Something else</button>
+          </div>
+
+          <label class="field"><span>Your message</span><textarea name="message"></textarea></label>
+          <button class="btn btn-lg" type="submit">Send</button>
+        </form>
+      </div>
+
+      <div class="inforow" style="grid-template-columns:minmax(0,1fr);gap:16px">
+        <div class="card"><h3 class="h4">Email us</h3><p>The fastest way to reach a person. Most replies come back the same day.</p><p><b>support@molotime.com</b></p></div>
+        <div class="card"><h3 class="h4">Before you order</h3><p>Not sure whether you need one product or both? Tell us where you are in your cycle and what you are already taking, and we will tell you honestly.</p></div>
+        <div class="card"><h3 class="h4">During treatment</h3><p>If you are in an IVF or IUI cycle, bring both labels to your clinic before starting anything. Your clinic’s protocol always comes first.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -------------------------------------------------------------- -->
+<section class="sec tint" id="guarantee">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:34px">
+      <p class="eyebrow">Our promise</p>
+      <h2 class="h2 full">Ninety days is the ask. So ninety days is the guarantee.</h2>
+      <p style="max-width:64ch">We ask you for a full window, because anything shorter cannot tell you anything, and we would rather say that plainly than sell you one month and hope.</p>
+    </div>
+
+    <div class="grid2 top">
+      <div class="card">
+        <p class="d" style="font-family:var(--molo-font-display);font-size:30px;margin:0 0 6px">The 90-Day Window Guarantee</p>
+        <p>Take it every day for as long as you have it. If it was not easier to keep than what you were doing before, email us any time within 120 days of your first order and we will refund it.</p>
+        <p><b>Open bag is fine. No return shipping. Keep the shaker.</b></p>
+        <p style="margin-top:18px">We will not guarantee you a pregnancy. Nobody honest can. What we will guarantee is that this is something you can actually stay on for three months, and if it turns out it is not, you should not be paying for it.</p>
+      </div>
+      <div>
+        <h3 class="h3">How to use it</h3>
+        <div class="steps">
+          <div class="step"><p>Email us at <b>support@molotime.com</b> with your order number, any time within 120 days of your first order.</p></div>
+          <div class="step"><p>Tell us what did not work. One or two sentences is plenty, and it genuinely helps us.</p></div>
+          <div class="step"><p>We refund the purchase price to your original payment method, usually within 3 to 5 business days.</p></div>
+        </div>
+        <p style="margin-top:22px"><b>No form to fill out. No bag to ship back. No restocking fee. No return shipping deducted.</b></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RETURNS ---------------------------------------------------------------- -->
+<section class="sec" id="returns">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:34px"><h2 class="h2 full">Returns and refunds</h2></div>
+    <div class="grid2 top" style="gap:24px">
+      <div class="ccard"><h3 class="h4">Inside the 90-day window</h3><p>Use the steps above. That covers most situations, including an opened bag, a flavor you did not like, and changing your mind.</p></div>
+      <div class="ccard"><h3 class="h4">Damaged or wrong order</h3><p>Email us a photo and your order number. We will send a replacement, and you do not need to return anything.</p></div>
+      <div class="ccard"><h3 class="h4">Says delivered, but is not there</h3><p>Give it 24 hours, then check with your neighbors and your building. If it still has not turned up, email us and we will sort it out.</p></div>
+      <div class="ccard"><h3 class="h4">Unopened, outside the window</h3><p>Email us within 120 days of the order and we will look at it. We would rather solve it than quote a policy at you.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SHIPPING --------------------------------------------------------------- -->
+<section class="sec tint" id="shipping">
+  <div class="wrap">
+    <div class="grid2 top">
+      <div>
+        <h2 class="h2">Shipping</h2>
+        <p>Free on every order, with no minimum. We removed the threshold rather than making you add something you did not want.</p>
+      </div>
+      <div class="tblcard shiptbl">
+        <table class="tbl"><tbody>
+          <tr><td><p class="rowname">Free shipping</p></td><td class="val">On every order, no minimum</td></tr>
+          <tr><td><p class="rowname">Processing</p></td><td class="val">Ships the next business day</td></tr>
+          <tr><td><p class="rowname">Delivery</p></td><td class="val">3 to 5 business days, continental US</td></tr>
+          <tr><td><p class="rowname">International</p></td><td class="val">Not currently</td></tr>
+          <tr><td><p class="rowname">Tracking</p></td><td class="val">Emailed with the label</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBSCRIPTION ----------------------------------------------------------- -->
+<section class="sec" id="subscription">
+  <div class="wrap-narrow">
+    <h2 class="h2 full">Your subscription</h2>
+    <h3 class="h4">How it works</h3>
+    <p>Pick 90 days or 30 days and it ships automatically, with free shipping. You get a reminder email before every shipment, so nothing arrives unexpectedly.</p>
+    <h3 class="h4" style="margin-top:26px">What you can change, any time, in two clicks</h3>
+    <p>Pause · Skip a shipment · Change your delivery date · Swap flavors · Switch between the Protocol and a single product · Cancel</p>
+    <h3 class="h4" style="margin-top:26px">Cancelling</h3>
+    <p>Two clicks in your account. No phone call, no email required, no retention gauntlet. If you want to come back later, your history is still there.</p>
+    <p style="margin-top:26px"><a class="btn btn-ghost" href="#contact">Manage my subscription →</a></p>
+  </div>
+</section>
+
+<!-- FULL FAQ --------------------------------------------------------------- -->
+<section class="sec tint" id="faq">
+  <div class="wrap-narrow">
+    <div class="center" style="margin-bottom:28px"><h2 class="h2 full">Every question we get</h2></div>
+
+    <div class="topicrow" data-chips="#faqlist" style="justify-content:center;margin-bottom:26px">
+      <button type="button" class="topic" aria-pressed="true" data-chip="all">All</button>
+      <button type="button" class="topic" aria-pressed="false" data-chip="start">Getting started</button>
+      <button type="button" class="topic" aria-pressed="false" data-chip="products">The products</button>
+      <button type="button" class="topic" aria-pressed="false" data-chip="taking">Taking it</button>
+      <button type="button" class="topic" aria-pressed="false" data-chip="safety">Safety</button>
+      <button type="button" class="topic" aria-pressed="false" data-chip="orders">Orders</button>
+      <button type="button" class="topic" aria-pressed="false" data-chip="returns">Returns</button>
+    </div>
+
+    <div id="faqlist">
+      <details class="acc" data-chip-group="start"><summary>Which one do I need?</summary><div class="panel"><p>Most women need both, which is why we sell them as the Protocol. Ovulation works on the cycle you are in right now. Prenatal gets the foundation ready underneath it. If you are already on a prenatal you like, Ovulation alone is a reasonable place to start.</p></div></details>
+      <details class="acc" data-chip-group="start"><summary>When should I start?</summary><div class="panel"><p>Now rather than after a positive. The neural tube closes in the first few weeks, often before a test reads positive, which is why folate matters in the months beforehand. And a follicle takes roughly 90 days to finish maturing, so the sooner you start the more of that window you cover.</p></div></details>
+      <details class="acc" data-chip-group="start"><summary>How long before I notice anything?</summary><div class="panel"><p>Cycle regularity is what women most often tell us they track. Egg quality is not something you can feel, and anyone promising otherwise is selling you something. Give it the full ninety days.</p></div></details>
+
+      <details class="acc" data-chip-group="products"><summary>What is the difference between the two?</summary><div class="panel"><p>Ovulation works on the cycle you are in right now, with myo-inositol, D-chiro-inositol, K2, D3 and zinc. Prenatal gets the foundation ready, with methylfolate, vitamin C, vitamin D, CoQ10 and ginger. Together they are the Protocol. On their own, each is half of one.</p></div></details>
+      <details class="acc" data-chip-group="products"><summary>Is Molo Prenatal a complete pregnancy prenatal?</summary><div class="panel"><p>No. It is built as a preconception foundation, for the months before a positive. It does not contain choline, iodine, calcium or magnesium, and its iron is 4.5 mg rather than a pregnancy dose. When you get a positive, bring the label to your OB and ask about your iron and choline targets.</p></div></details>
+      <details class="acc" data-chip-group="products"><summary>Why is Ovulation more expensive than inositol on Amazon?</summary><div class="panel"><p>Commodity 40:1 inositol will give you the two ingredients for about twenty dollars. What you are paying for here is Caronositol® rather than generic powder, plus MenaQ7® K2, algal D3 and chelated zinc alongside it, and a drink instead of two more capsules. Whether that is worth the difference is genuinely your call.</p></div></details>
+      <details class="acc" data-chip-group="products"><summary>Are there proprietary blends?</summary><div class="panel"><p>None. Every ingredient and every amount is printed.</p></div></details>
+
+      <details class="acc" data-chip-group="taking"><summary>How do I take them?</summary><div class="panel"><p>One stick of each a day, stirred into 8 to 12 oz of cold water. Most women take Ovulation in the morning and Prenatal later, but the order does not matter. What matters is taking them daily for the full ninety days.</p></div></details>
+      <details class="acc" data-chip-group="taking"><summary>Can I mix them in the same glass?</summary><div class="panel"><p>We would not. They are different flavors and different textures, and taken separately they both taste better, which is the whole point of a routine you can keep.</p></div></details>
+      <details class="acc" data-chip-group="taking"><summary>What do they taste like?</summary><div class="panel"><p>Strawberry Kiwi is bright and light. Black Cherry is deeper and less sweet. Both are sweetened with Reb M and monk fruit, with no added sugar. You can mix both flavors on any 90-day plan.</p></div></details>
+
+      <details class="acc" data-chip-group="safety"><summary>Can I take this during IVF or IUI?</summary><div class="panel"><p>Bring both labels to your clinic before starting anything during a treatment cycle. Molo is a supplement rather than a medical product, and your clinic’s protocol always comes first.</p></div></details>
+      <details class="acc" data-chip-group="safety"><summary>Do I stop when I get pregnant?</summary><div class="panel"><p>Talk to your OB, and bring both labels. Molo Prenatal is built for preconception. For pregnancy specifically, ask about your iron and choline targets.</p></div></details>
+      <details class="acc" data-chip-group="safety"><summary>Where is it made and is it tested?</summary><div class="panel"><p>Made in the USA in a GMP-certified facility, and third-party tested for purity and potency.</p></div></details>
+      <details class="acc" data-chip-group="safety"><summary>Is it vegetarian, gluten-free, non-GMO?</summary><div class="panel"><p>All three, with no added sugar and nothing artificial.</p></div></details>
+
+      <details class="acc" data-chip-group="orders"><summary>How does the subscription work?</summary><div class="panel"><p>Pick 90 days or 30 days and it ships automatically with free shipping. You get a reminder before every shipment, and you can pause, swap flavors, or cancel in two clicks.</p></div></details>
+      <details class="acc" data-chip-group="orders"><summary>How do I cancel?</summary><div class="panel"><p>Two clicks in your account. No phone call, no email required, no retention gauntlet.</p></div></details>
+      <details class="acc" data-chip-group="orders"><summary>Is shipping really free?</summary><div class="panel"><p>On every order, with no minimum.</p></div></details>
+
+      <details class="acc" data-chip-group="returns"><summary>What is the guarantee?</summary><div class="panel"><p>Ninety days. Email us within 120 days of your first order. Open bag is fine, no return shipping, keep the shaker.</p></div></details>
+      <details class="acc" data-chip-group="returns"><summary>What if my order arrives damaged?</summary><div class="panel"><p>Email us a photo and your order number. We will send a replacement, and you do not need to return anything.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec-sm navy">
+  <div class="wrap center">
+    <h2 class="h2 full" style="margin-bottom:20px">Still not sure?</h2>
+    <p style="margin:0 auto 26px;max-width:52ch">Tell us where you are and what you are already taking. We will tell you honestly whether you need one product or both.</p>
+    <p><a class="btn btn-cream btn-lg" href="#contact">Ask us a question →</a></p>
+  </div>
+</section>
+</main>
+
+<div id="site-footer"></div>
+<script src="assets/site.js"></script>
+</body>
+</html>

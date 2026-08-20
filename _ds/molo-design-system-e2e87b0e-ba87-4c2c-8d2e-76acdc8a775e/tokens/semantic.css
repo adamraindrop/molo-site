@@ -1,0 +1,37 @@
+/* Semantic aliases. Use these in components so the contrast rules are structural, not remembered. */
+:root{
+  --text-body:var(--molo-navy);
+  --text-heading:var(--molo-navy);
+  --text-heading-blue:var(--molo-blue);      /* large type only */
+  --text-heading-on-dark:var(--molo-white);
+  --text-muted:var(--molo-gray-3a);
+  --text-input:var(--molo-ink);
+  --text-link:var(--molo-blue);
+  --text-link-hover:var(--molo-black);
+  --text-legal:var(--molo-gray-3a);
+
+  --surface-page:var(--molo-white);
+  --surface-warm:var(--molo-cream);
+  --surface-card:var(--molo-white);
+  --surface-tint:var(--molo-sky-light);       /* alternate section band */
+  --surface-tint-soft:#E8F6FE;
+  --surface-brand:var(--molo-blue);
+  --surface-brand-bg:var(--molo-sky);         /* background tint ONLY, never behind body copy */
+  --surface-dark:var(--molo-navy);
+  --surface-accent:var(--molo-bubblegum);     /* sparingly */
+  --surface-neutral:var(--molo-gray-f4);
+
+  --border-subtle:var(--molo-gray-e5);
+  --border-strong:var(--molo-gray-ca);
+  --border-brand:var(--molo-blue);
+
+  --action-bg:var(--molo-blue);
+  --action-label:var(--molo-white);
+  --action-bg-hover:var(--molo-black);
+  --action-label-hover:var(--molo-white);
+  --action-bg-on-dark:var(--molo-cream);
+  --action-label-on-dark:var(--molo-blue);
+  --action-disabled:var(--molo-disabled);
+
+  --focus-ring:0 0 0 3px rgba(49,128,226,.35);
+}

@@ -1,0 +1,65 @@
+{
+  "page": "design_handoff_molo_protocol_lander / Protocol Landing Page.html",
+  "built": "2026-08-16",
+  "frame": "Lifestyle frames carry NO packaging [ADAM 2026-08-16]. Product presence comes from the prepared drink and everyday vessels: a reusable water bottle, a tall glass. Nothing to drift, and none of it needs reshooting when the ecommerce photography lands. Pack only appears where it is the argument: the R01 comparison and the FAQ tear.",
+  "not_built": {
+    "offer-01 / offer-02": "Pack shots. Use real ecommerce photography, not generation.",
+    "vid-01 / vid-02 / vid-03": "Rebecca's real YouTube thumbnails. Never generated."
+  },
+  "images": [
+    {
+      "file": "LP-HERO.png",
+      "slot_id": "hero-01",
+      "ratio": "4:5",
+      "size": [
+        928,
+        1152
+      ],
+      "product": "None. Glass bottle with bamboo top on the side table, filled with bright red-pink Strawberry Kiwi.",
+      "note": "Hero, full-bleed left panel (min-height 820px desktop, 420px landscape on mobile). No text sits over it. Wedding band added by targeted edit (edit.py), not regenerated.",
+      "pillar": "Lifestyle \u2014 editorial influencer, aspirational, product-free",
+      "setting": "Sunlit plant-filled living room. Not a kitchen; the kitchen reads generic and the LP already has two kitchen frames."
+    },
+    {
+      "file": "LP-R01.png",
+      "slot_id": "r01",
+      "ratio": "5:4",
+      "size": [
+        1152,
+        928
+      ],
+      "product": "None. Glass bottle with bamboo top, bright red-pink, matching the hero.",
+      "note": "Couple in their early thirties on the beach. Aspect 1.25; the quote card floats bottom-right at 78% width, so the couple sits in the upper two thirds with clean sand across the bottom.",
+      "pillar": "Lifestyle \u2014 product-free"
+    },
+    {
+      "file": "LP-R05.png",
+      "slot_id": "r05",
+      "ratio": "5:4",
+      "size": [
+        1152,
+        928
+      ],
+      "product": "None. Water bottle (hero) and a tall glass of prepared drink (r05).",
+      "note": "Reason 05 proof image, aspect 1.25. Same quote-card constraint.",
+      "pillar": "Lifestyle \u2014 editorial influencer, aspirational, product-free"
+    },
+    {
+      "file": "LP-FAQ.png",
+      "slot_id": "faq-01",
+      "ratio": "1:1",
+      "size": [
+        1024,
+        1024
+      ],
+      "product": "None. Glass bottle with bamboo top on the desk, filled with plain water.",
+      "note": "Researching and weighing options. Square, crops to the page edge.",
+      "pillar": "Lifestyle \u2014 product-free"
+    }
+  ],
+  "editing": "Small fixes on an approved frame go through edit.py, which passes the image back with a preservation clause. Never re-run generate.py for a detail change: a fresh generation reshuffles face, pose and light and you lose the frame you already signed off.",
+  "retired": {
+    "_retired/R01_seven-bottles-comparison.png": "The original R01 proof: unbranded bottles and a pill organiser vs two sticks and a glass. Still the sharpest visual statement of the overwhelm pain if a slot ever wants it, e.g. Reason 06 on cost.",
+    "_retired/FAQ_stick-tear-pour.png": "The original FAQ macro: hands tearing a stick over a glass."
+  }
+}

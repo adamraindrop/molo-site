@@ -1,0 +1,13 @@
+/* Minimal element defaults so specimens and prototypes inherit the brand without extra work. */
+body{margin:0;font-family:var(--molo-font-body);font-weight:var(--molo-weight-body);font-size:var(--molo-fs-body);line-height:var(--molo-lh-body);color:var(--text-body);background:var(--surface-page);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--molo-font-display);font-weight:400;margin:0;color:var(--text-heading)}
+h1{font-size:var(--molo-fs-h1);line-height:var(--molo-lh-h1)}
+h2{font-size:var(--molo-fs-h2);line-height:var(--molo-lh-h2)}
+h3{font-size:var(--molo-fs-h3);line-height:var(--molo-lh-h3)}
+h4{font-size:var(--molo-fs-h4);line-height:var(--molo-lh-h4)}
+p{margin:0 0 1em}
+strong,b{font-weight:var(--molo-weight-bold)}
+a{color:var(--text-link);text-decoration:none}
+a:hover{color:var(--text-link-hover);text-decoration:underline}
+small{font-size:var(--molo-fs-caption);line-height:var(--molo-lh-caption)}
+*,*::before,*::after{box-sizing:border-box}

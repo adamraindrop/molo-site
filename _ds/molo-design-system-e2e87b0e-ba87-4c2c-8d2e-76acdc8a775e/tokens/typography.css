@@ -1,0 +1,25 @@
+/* MOLO type. Two faces, no third. Work Sans in the source theme is dead weight — ignore it. */
+:root{
+  --molo-font-display:"nexa-black","Nexa Black",sans-serif;
+  --molo-font-body:"Montserrat",sans-serif;
+
+  --molo-weight-display:400; /* @kind font */   /* NEVER raise this */
+  --molo-weight-body:500; /* @kind font */      /* Molo "regular" */
+  --molo-weight-bold:600; /* @kind font */      /* Molo "bold" */
+
+  --molo-body-scale:1.1; /* @kind other */
+  --molo-heading-scale:1.0909; /* @kind other */
+
+  --molo-fs-display:64px;  --molo-lh-display:1.05; /* @kind other */
+  --molo-fs-h1:48px;       --molo-lh-h1:1.10; /* @kind other */
+  --molo-fs-h2:34.9px;     --molo-lh-h2:1.30; /* @kind other */
+  --molo-fs-h3:26.2px;     --molo-lh-h3:1.30; /* @kind other */
+  --molo-fs-h4:20px;       --molo-lh-h4:1.30; /* @kind other */
+  --molo-fs-body:17.6px;   --molo-lh-body:1.30; /* @kind other */
+  --molo-fs-button:16px;   --molo-lh-button:1.19; /* @kind other */
+  --molo-fs-caption:14px;  --molo-lh-caption:1.40; /* @kind other */
+  --molo-fs-legal:12px;    --molo-lh-legal:1.45; /* @kind other */
+
+  --molo-tracking-eyebrow:0.08em; /* @kind other */
+  --molo-tracking-button:0.04em; /* @kind other */
+}

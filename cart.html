@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Your bag — Molo</title>
+<link rel="icon" href="assets/molo-heart-mark.svg">
+<link rel="stylesheet" href="_ds/molo-design-system-e2e87b0e-ba87-4c2c-8d2e-76acdc8a775e/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/molo-design-system-e2e87b0e-ba87-4c2c-8d2e-76acdc8a775e/tokens/colors.css">
+<link rel="stylesheet" href="_ds/molo-design-system-e2e87b0e-ba87-4c2c-8d2e-76acdc8a775e/tokens/typography.css">
+<link rel="stylesheet" href="_ds/molo-design-system-e2e87b0e-ba87-4c2c-8d2e-76acdc8a775e/tokens/geometry.css">
+<link rel="stylesheet" href="_ds/molo-design-system-e2e87b0e-ba87-4c2c-8d2e-76acdc8a775e/tokens/semantic.css">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.shipbar{background:var(--molo-navy);color:var(--molo-cream);border-radius:20px;padding:14px 20px;
+  display:flex;align-items:center;gap:12px;font-weight:600;font-size:14px;margin:0 0 24px}
+.giftrow{display:grid;grid-template-columns:96px minmax(0,1fr) auto;gap:20px;align-items:center;
+  background:var(--molo-cream);border:1.5px solid var(--molo-gray-e5);border-radius:24px;padding:18px;margin:0 0 16px}
+.giftrow img{width:96px;height:96px;object-fit:cover;border-radius:16px}
+@media(max-width:640px){
+  .giftrow{grid-template-columns:72px minmax(0,1fr);gap:14px;padding:14px}
+  .giftrow img{width:72px;height:72px}
+  .giftrow>*:nth-child(3){grid-column:1/-1}
+}
+</style>
+</head>
+<body data-page="cart">
+<div id="site-header"></div>
+
+<main>
+<section class="sec-sm">
+  <div class="wrap">
+    <h1 class="h1" style="font-size:34px">Your bag</h1>
+
+    <div class="shipbar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/><circle cx="7.5" cy="16.5" r="1.5"/><circle cx="17.5" cy="16.5" r="1.5"/></svg>
+      Free shipping on every order. No minimum.
+    </div>
+
+    <div class="cartgrid">
+      <div>
+        <!-- line items -->
+        <div class="lineitem">
+          <img src="assets/lp/OFFER-1-ovulation-pack.jpg" alt="Molo Ovulation">
+          <div>
+            <h3 class="h4" style="margin-bottom:4px">Molo Ovulation</h3>
+            <p class="small" style="color:var(--molo-gray-3a);margin:0 0 4px">Strawberry Kiwi · 3 Month Supply</p>
+            <p class="small" style="color:var(--molo-gray-98);margin:0">Ships every 90 days · Pause or cancel any time</p>
+            <div class="qty" style="margin-top:12px">
+              <button type="button" aria-label="Decrease quantity">−</button><span>1</span><button type="button" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+          <div style="text-align:right">
+            <p style="font-weight:700;font-size:17px;margin:0">$74.99</p>
+            <p class="small" style="color:var(--molo-gray-98);margin:2px 0 0"><s>$89.99</s></p>
+            <button type="button" style="background:none;border:0;color:var(--molo-gray-98);font-size:13px;text-decoration:underline;cursor:pointer;margin-top:10px">Remove</button>
+          </div>
+        </div>
+
+        <div class="lineitem">
+          <img src="assets/lp/OFFER-6-prenatal-pack.jpg" alt="Molo Prenatal">
+          <div>
+            <h3 class="h4" style="margin-bottom:4px">Molo Prenatal</h3>
+            <p class="small" style="color:var(--molo-gray-3a);margin:0 0 4px">Black Cherry · 3 Month Supply</p>
+            <p class="small" style="color:var(--molo-gray-98);margin:0">Ships every 90 days · Pause or cancel any time</p>
+            <div class="qty" style="margin-top:12px">
+              <button type="button" aria-label="Decrease quantity">−</button><span>1</span><button type="button" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+          <div style="text-align:right">
+            <p style="font-weight:700;font-size:17px;margin:0">$75.00</p>
+            <p class="small" style="color:var(--molo-gray-98);margin:2px 0 0"><s>$89.99</s></p>
+            <button type="button" style="background:none;border:0;color:var(--molo-gray-98);font-size:13px;text-decoration:underline;cursor:pointer;margin-top:10px">Remove</button>
+          </div>
+        </div>
+
+        <!-- free gift row -->
+        <div class="giftrow">
+          <img src="assets/shaker-orange-drink-clean.jpg" alt="Molo shaker bottle">
+          <div>
+            <h3 class="h4" style="margin-bottom:4px">Molo Shaker <span class="chip" style="font-size:11px;padding:5px 12px;margin-left:6px">Free gift</span></h3>
+            <p class="small" style="color:var(--molo-gray-3a);margin:0">Added automatically with any 90-day plan. The powder mixes smoother when it is shaken.</p>
+          </div>
+          <div style="text-align:right">
+            <p style="font-weight:700;font-size:17px;margin:0;color:var(--molo-blue)">$0.00</p>
+            <p class="small" style="color:var(--molo-gray-98);margin:2px 0 0"><s>$14.99</s></p>
+          </div>
+        </div>
+
+        <!-- Upsells only appear when the full Protocol is NOT in the bag. Both
+             halves are here, so this block stays hidden. -->
+        <div id="upsells" hidden style="margin-top:28px">
+          <h3 class="h3">Complete your routine</h3>
+          <p class="small" style="color:var(--molo-gray-3a)">Fertility support has two jobs. You are covering one of them.</p>
+        </div>
+
+        <div class="ccard" style="margin-top:24px;padding:26px">
+          <p style="margin:0;font-size:15px"><b>90-Day Window Guarantee.</b> Take it every day for as long as you have it. If it was not easier to keep than what you were doing before, one email within 120 days gets your money back. Open bag is fine, no return shipping, keep the shaker.</p>
+        </div>
+      </div>
+
+      <!-- order summary -->
+      <aside class="summary">
+        <h2 class="h3" style="margin-bottom:20px">Order summary</h2>
+        <div class="sumrow"><span>Subtotal</span><span>$179.98</span></div>
+        <div class="sumrow"><span class="save">Protocol savings</span><span class="save">−$29.99</span></div>
+        <div class="sumrow"><span>Molo Shaker</span><span>Free</span></div>
+        <div class="sumrow"><span>Shipping</span><span>Free</span></div>
+        <div class="sumrow tot"><span>Total</span><span>$149.99</span></div>
+        <p class="small" style="color:var(--molo-gray-3a);margin:14px 0 0">$49.99 a month · $1.67 a day · billed every 90 days</p>
+        <p style="margin:20px 0 0"><a class="btn btn-lg btn-block" href="#">Checkout</a></p>
+        <p class="small center" style="margin-top:14px;color:var(--molo-gray-3a)">Free shipping · Pause or cancel any time</p>
+
+        <hr class="divider">
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <img src="assets/christina-westbrook-headshot.png" alt="" style="width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:top;flex:0 0 auto">
+          <p class="small" style="margin:0;max-width:none"><b>Nurse-formulated.</b> Both formulas were written by Christina Westbrook, MBA, MSN, Chief Nursing Officer of a Los Angeles fertility clinic.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+</main>
+
+<div id="site-footer"></div>
+<script src="assets/site.js"></script>
+<script>
+/* Quantity steppers are local-only in the prototype; Shopify owns cart state in
+   production. Wired up so the control is testable, not to model real pricing. */
+window.MoloPage = function () {
+  document.querySelectorAll('.qty').forEach(function (q) {
+    var val = q.querySelector('span');
+    q.querySelectorAll('button').forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        var n = parseInt(val.textContent, 10) + (i ? 1 : -1);
+        val.textContent = String(Math.max(1, n));
+      });
+    });
+  });
+};
+</script>
+</body>
+</html>

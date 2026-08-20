@@ -1,0 +1,44 @@
+/* MOLO color. Source: adamraindrop/molo-design-system tokens/tokens.css + brand-guidelines.md.
+   Corrections applied per the repo's logged inconsistencies:
+   - #3180E2 is the single brand blue. #0AA0E2 (sky) is a BACKGROUND TINT and large-display color only.
+   - Body copy is navy or ink. Never sky on white, never white on sky (2.94:1). */
+:root{
+  --molo-blue:#3180E2;
+  --molo-blue-deep:#1F63BC;
+  --molo-sky:#0AA0E2;
+  --molo-sky-light:#71D9FC;
+  --molo-bubblegum:#FD85EB;
+  --molo-navy:#192333;
+  --molo-ink:#042436;
+  --molo-cream:#FBF9ED;
+  --molo-sand:#E6DFD4;
+  --molo-white:#FFFFFF;
+  --molo-black:#000000;
+
+  /* Heart mark. LOGO ONLY — never a UI fill, never a background. */
+  --molo-heart-start:#F73C71;
+  --molo-heart-end:#C1272D;
+  --molo-heart-flat:#FF0053;
+  --molo-heart-gradient:linear-gradient(214deg,#F73C71 0%,#C1272D 100%); /* @kind color */
+
+  /* Packaging artwork gradient. All SKUs share it. */
+  --molo-pack-light:#98E8F8;
+  --molo-pack-deep:#28B8F8;
+  --molo-pack-gradient:linear-gradient(180deg,#98E8F8 0%,#28B8F8 100%); /* @kind color */
+
+  /* Neutrals */
+  --molo-gray-f4:#F4F4F4;
+  --molo-gray-e5:#E5E5E5;
+  --molo-gray-ca:#CACACA;
+  --molo-gray-98:#989898;
+  --molo-gray-3a:#3A3A3A;
+
+  /* System */
+  --molo-success:#469B49;
+  --molo-success-bg:#E6FEEB;
+  --molo-error:#BA3E38;
+  --molo-error-bg:#FDF1F1;
+  --molo-disabled:#9F9F9F;
+  --molo-badge-sale:#3180E2;
+  --molo-badge-soldout:#9F9F9F;
+}

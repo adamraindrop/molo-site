@@ -1,0 +1,36 @@
+/* Geometry. Nothing in this brand has a sharp corner. */
+:root{
+  --molo-radius-button:30px;   /* pill */
+  --molo-radius-block:40px;    /* cards, content blocks, images */
+  --molo-radius-drawer:24px;
+  --molo-radius-input:8px;
+  --molo-radius-pill:999px;    /* eyebrow tags, chips */
+
+  --molo-container:1320px; /* @kind other */
+  --molo-button-padding:18px 32px; /* @kind spacing */
+  --molo-button-padding-sm:12px 24px; /* @kind spacing */
+  --molo-button-padding-lg:22px 44px; /* @kind spacing */
+
+  --molo-space-1:4px;
+  --molo-space-2:8px;
+  --molo-space-3:12px;
+  --molo-space-4:16px;
+  --molo-space-5:24px;
+  --molo-space-6:32px;
+  --molo-space-7:48px;
+  --molo-space-8:64px;
+  --molo-space-9:96px;
+  --molo-space-10:128px;
+
+  --molo-section-y:96px;
+  --molo-gutter:24px;
+
+  --molo-shadow-card:0 8px 28px rgba(4,36,54,.08);
+  --molo-shadow-lift:0 14px 40px rgba(4,36,54,.14);
+  --molo-shadow-none:none; /* @kind shadow */
+
+  --molo-ease:cubic-bezier(.2,.7,.3,1); /* @kind other */
+  --molo-dur-fast:120ms; /* @kind other */
+  --molo-dur:200ms; /* @kind other */
+  --molo-dur-slow:400ms; /* @kind other */
+}
