@@ -46,10 +46,12 @@
 /* Below ~830 the copy column would run into her, so the hero drops the
    side-by-side treatment and washes vertically instead. */
 @media(max-width:900px){
-  .hhero{min-height:0}
-  .hhero__img{left:0;-webkit-mask-image:none;mask-image:none}
+  .hhero{display:block;min-height:0}
+  .hhero__img{position:relative;height:380px;left:0;
+    -webkit-mask-image:none;mask-image:none}
   .hhero__img img{object-position:65% 32%}
-  .hhero__scrim{background:linear-gradient(180deg,rgba(251,249,237,.30) 0%,rgba(251,249,237,.90) 54%,var(--molo-cream) 80%)}
+  .hhero__scrim{display:none}
+  .hhero__inner{padding:30px 0 10px}
 }
 
 /* Founders: two equal cards, 168px circular portraits with a 5px blue ring. */
@@ -85,9 +87,7 @@
   /* Above the fold on a phone must carry H1 + CTA. The photo becomes a banner
      above the copy rather than a scrim behind it, which at 375 just muddies
      both. */
-  .hhero{display:block}
-  .hhero__img{position:relative;height:300px}
-  .hhero__scrim{display:none}
+  .hhero__img{height:300px}
   .hhero__inner{padding:28px 0 8px}
   .founder{padding:26px 22px;border-radius:28px}
   .founder__pic{width:120px;height:120px;border-width:4px;margin-bottom:16px}

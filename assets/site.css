@@ -63,6 +63,7 @@ button{font:inherit}
 .grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
 .grid2.top{align-items:start}
 .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+h1,h2,h3,h4,.h1,.h2,.h3,.h4{overflow-wrap:break-word}
 .grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
 
 /* ---------- type --------------------------------------------------------- */
@@ -520,6 +521,8 @@ b,strong{font-weight:600}
    generous; this is not the phone layout.
    ========================================================================== */
 @media(max-width:960px){
+  .grid3{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .revgrid--5{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
   .sec{padding:64px 0}.sec-sm{padding:48px 0}
   .grid2,.pdp,.cartgrid{grid-template-columns:minmax(0,1fr)!important;gap:36px!important}
   .grid4{grid-template-columns:repeat(2,minmax(0,1fr))}
