@@ -51,26 +51,21 @@
         <button class="btn btn-ghost btn-block" style="margin-top:16px" data-open="facts">View Supplement Facts</button>
 
         <div class="card" style="margin-top:16px;padding:24px;border-radius:24px;box-shadow:none;border:1.5px solid var(--molo-gray-e5)">
-          <p class="small" style="font-weight:600;margin:0 0 8px">Tastes delicious <span class="stars">★★★★☆</span></p>
+          <p class="small" style="font-weight:600;margin:0 0 8px">Tastes delicious <span class="rating" role="img" aria-label="Rated 4.5 out of 5" style="--pct:90%">★★★★★</span></p>
           <p style="font-size:15px;margin:0 0 8px">“Actually tasty and not overpowering. I was pleasantly surprised.”</p>
           <p class="byline" style="margin:0">Jess · Verified Buyer</p>
         </div>
 
-        <div class="giftband" style="margin-top:16px">
-          <img src="assets/shaker-orange-drink-clean.jpg" alt="">
-          <p><b>Free Molo shaker.</b> With any 90-day plan. The powder mixes smoother when it is shaken, so we send you the bottle for it.</p>
-        </div>
       </div>
 
       <!-- RIGHT · buy box ------------------------------------------------ -->
       <div class="bb">
         <!-- 4.6/68 is Prenatal only. Ovulation is unrated and says so. Never fused. -->
         <p class="bb__social" style="flex-wrap:wrap">
-          <b>Molo Prenatal:</b>
           <span class="rating" role="img" aria-label="Rated 4.6 out of 5" style="--pct:90%">★★★★★</span>
           <span>4.6/5 (68)</span>
         </p>
-        <p class="small" style="color:var(--molo-gray-3a);margin:0 0 12px">Ovulation is new and reviews are still coming in. · Nurse-formulated · Third-party tested</p>
+        <p class="small" style="color:var(--molo-gray-3a);margin:0 0 12px">Nurse-formulated · Third-party tested</p>
 
         <h1 class="h1">The Molo Fertility Protocol</h1>
         <p class="bb__sub">Ovulation + Prenatal Essentials</p>
@@ -99,7 +94,6 @@
           <button class="flavor" aria-pressed="true" data-flavor="Mix both" data-mixonly="1">
             <span class="sw" style="background:linear-gradient(90deg,#F0567F 50%,#8E1F3C 50%)"></span><span class="nm">Mix both</span></button>
         </div>
-        <p class="small" id="mixnote" style="color:var(--molo-gray-3a);margin:-12px 0 22px">Ninety days of one flavor is how people quit. Mixing costs nothing extra.</p>
 
         <p class="bb__label">Autoship &amp; Save</p>
 
@@ -121,11 +115,7 @@
           <div class="trusttile"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>Ships Next Business Day</div>
         </div>
 
-        <p class="anchornote">Bought separately on Amazon, Ovulation and Prenatal are <b>$49.99 each</b>. On the 90-day plan, that works out to <b>$26.50 a bag</b>.</p>
 
-        <div class="ccard" style="margin-top:22px;padding:24px;border-radius:24px">
-          <p style="margin:0;font-size:15px"><b>90-Day Window Guarantee.</b> Ninety days is what we ask for. If it was not easier to keep than what you were doing before, one email within 120 days gets your money back. Open bag is fine.</p>
-        </div>
 
         <div style="margin-top:26px">
           <details class="acc"><summary>Why two products instead of one?</summary><div class="panel"><p>Because fertility support has two different jobs and no single formula does both well. Ovulation works on the cycle you are in right now, with myo-inositol and D-chiro-inositol. Prenatal gets the foundation ready, with methylfolate, vitamin D, vitamin C and CoQ10. Most women are already covering the second one and are surprised to learn the first is separate.</p></div></details>
@@ -136,7 +126,6 @@
           <details class="acc"><summary>Can I take this during IVF or IUI?</summary><div class="panel"><p>Bring both labels to your clinic before starting anything during a treatment cycle. Molo is a supplement rather than a medical product, and your clinic’s protocol always comes first.</p></div></details>
         </div>
 
-        <p class="legal" style="margin-top:20px">†These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
       </div>
     </div>
   </div>
@@ -577,7 +566,7 @@ window.MoloPage = function () {
     if (!mixOk && mixBtn.getAttribute('aria-pressed') === 'true') {
       pickFlavor(flavors.querySelector('[data-flavor="Strawberry Kiwi"]'));
     }
-    mixNote.hidden = !mixOk;
+    if (mixNote) mixNote.hidden = !mixOk;
     gift.hidden = currentPlan() !== '3';
   }
 

@@ -98,7 +98,7 @@
       '</div>' +
       '<div class="ftr__rule">' +
         '<p class="ftr__brandline">Empower your journey to motherhood.</p>' +
-        '<p class="ftr__legal">These statements have not been evaluated by the Food and Drug Administration. ' +
+        '<p class="ftr__legal">\u2020These statements have not been evaluated by the Food and Drug Administration. ' +
           'This product is not intended to diagnose, treat, cure, or prevent any disease. Molo is a dietary ' +
           'supplement, not a fertility treatment, and is not a substitute for medical care. Always talk to your ' +
           'healthcare provider before starting any supplement, particularly during fertility treatment or ' +
