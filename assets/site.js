@@ -50,11 +50,11 @@
           '<span id="announce-msg">' + ANNOUNCEMENTS[0] + '</span></div>' +
         '<header class="hdr">' +
           '<a class="hdr__logo" href="index.html" aria-label="Molo home">' +
-            '<img src="assets/molo-logo-primary-blue.svg" alt="MOLO"></a>' +
+            '<img src="assets/library/logo/blue-logo-4x.png" alt="MOLO"></a>' +
           '<nav aria-label="Primary">' + links + '</nav>' +
           '<div class="hdr__right">' +
             '<a class="hdr__cart" href="cart.html" aria-label="Cart">' + CART_ICON + '</a>' +
-            '<a class="btn" style="font-size:12px;padding:12px 20px" href="protocol.html">Start the Protocol</a>' +
+            '<a class="hdr__cta" href="protocol.html">Start the Protocol</a>' +
             '<button class="hdr__burger" id="burger" aria-expanded="false" aria-controls="mobnav" aria-label="Menu">' +
               '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>' +
             '</button>' +
@@ -66,58 +66,47 @@
   }
 
   /* ---------- footer ----------------------------------------------------- */
+  /* Five columns at 1.2/1/1/1.1/1.4, headings in the display face at 15px
+     uppercase, links at 14px/500. Learn carries exactly two links and Help
+     four; the mock does not list the guarantee separately. */
   function footer() {
+    function col(head, links) {
+      return '<div><p class="ftr__h">' + head + '</p><div class="ftr__links">' +
+        links.map(function (l) { return '<a href="' + l[1] + '">' + l[0] + '</a>'; }).join('') +
+        '</div></div>';
+    }
     return '' +
     '<footer class="ftr">' +
-      '<div class="wrap ftrgrid">' +
+      '<div class="ftrgrid">' +
         '<div>' +
-          '<img src="assets/molo-logo-reverse-white.svg" alt="MOLO" style="width:112px;margin-bottom:16px">' +
-          '<p style="color:rgba(255,255,255,.72);font-size:14.5px;max-width:26ch">' +
-            'Fertility support made by women, for women. Nurse-formulated, third-party tested.</p>' +
+          '<img class="ftr__logo" src="assets/library/logo/white-logo-4x.png" alt="MOLO">' +
+          '<p class="ftr__tag">Nurse-formulated fertility support.</p>' +
         '</div>' +
-        '<div><h2 class="ftr__h">Shop</h2><ul>' +
-          '<li><a href="protocol.html">The Molo Protocol</a></li>' +
-          '<li><a href="ovulation.html">Ovulation</a></li>' +
-          '<li><a href="prenatal.html">Prenatal</a></li>' +
-        '</ul></div>' +
-        '<div><h2 class="ftr__h">Learn</h2><ul>' +
-          '<li><a href="our-story.html">Our Story</a></li>' +
-          '<li><a href="our-story.html#rebecca">Rebecca’s Story</a></li>' +
-          '<li><a href="our-story.html#christina">The Nurse Who Wrote It</a></li>' +
-          '<li><a href="help.html#faq">FAQ</a></li>' +
-        '</ul></div>' +
-        '<div><h2 class="ftr__h">Help</h2><ul>' +
-          '<li><a href="help.html#contact">Contact Us</a></li>' +
-          '<li><a href="help.html#shipping">Shipping</a></li>' +
-          '<li><a href="help.html#returns">Returns and Refunds</a></li>' +
-          '<li><a href="help.html#guarantee">90-Day Window Guarantee</a></li>' +
-          '<li><a href="help.html#subscription">Manage Subscription</a></li>' +
-        '</ul></div>' +
-        '<div><h2 class="ftr__h">Trying, and tired of guessing?</h4>' +
-          '<p style="color:rgba(255,255,255,.72);font-size:14.5px;max-width:32ch">' +
-            'Once a week, one honest note about preparing your body. No hype, no pregnancy promises.</p>' +
+        col('Shop', [['The Molo Fertility Protocol','protocol.html'],['Ovulation','ovulation.html'],['Prenatal','prenatal.html']]) +
+        col('Learn', [['Our Story','our-story.html'],['FAQ','help.html#faq']]) +
+        col('Help', [['Contact Us','help.html'],['Shipping','help.html#shipping'],
+                     ['Returns and Refunds','help.html#returns'],['Manage Subscription','help.html#subscription']]) +
+        '<div>' +
+          '<p class="ftr__mailhead">Trying, and tired of guessing?</p>' +
+          '<p class="ftr__mailsub">Once a week, one honest note about preparing your body. No hype, no pregnancy promises.</p>' +
           '<form class="ftr__mail" onsubmit="return false">' +
             '<label class="sr-only" for="ftr-email">Email address</label>' +
-            '<input id="ftr-email" type="email" placeholder="Enter your email" autocomplete="email">' +
-            '<button class="btn btn-cream" type="submit">Join</button>' +
+            '<input id="ftr-email" type="email" placeholder="Enter your email address" autocomplete="email">' +
+            '<button type="submit">Join</button>' +
           '</form>' +
         '</div>' +
       '</div>' +
-      '<div class="wrap"><hr class="ftr__rule">' +
+      '<div class="ftr__rule">' +
         '<p class="ftr__brandline">Empower your journey to motherhood.</p>' +
+        '<p class="ftr__legal">These statements have not been evaluated by the Food and Drug Administration. ' +
+          'This product is not intended to diagnose, treat, cure, or prevent any disease. Molo is a dietary ' +
+          'supplement, not a fertility treatment, and is not a substitute for medical care. Always talk to your ' +
+          'healthcare provider before starting any supplement, particularly during fertility treatment or ' +
+          'pregnancy. Individual experiences vary.</p>' +
       '</div>' +
-      '<div class="wrap ftr__legal" style="margin-top:22px">' +
-        '<p>These statements have not been evaluated by the Food and Drug Administration. ' +
-          'This product is not intended to diagnose, treat, cure, or prevent any disease.</p>' +
-        '<p>Molo is a dietary supplement, not a fertility treatment, and is not a substitute for ' +
-          'medical care. Always talk to your healthcare provider before starting any supplement, ' +
-          'particularly during fertility treatment or pregnancy. Individual experiences vary.</p>' +
-      '</div>' +
-      '<div class="wrap" style="margin-top:20px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap">' +
-        '<p style="font-size:12px;color:rgba(255,255,255,.6);margin:0;max-width:none">' +
-          '© 2026 Molo. Nurse formulated in the USA.</p>' +
-        '<p style="font-size:12px;color:rgba(255,255,255,.6);margin:0;max-width:none;display:flex;gap:18px;flex-wrap:wrap">' +
-          '<span>Refund policy</span><span>Privacy policy</span><span>Terms of service</span></p>' +
+      '<div class="ftr__base">' +
+        '<p>© 2026 Molo. Nurse formulated in the USA.</p>' +
+        '<p><span>Refund policy</span><span>Privacy policy</span><span>Terms of service</span><span>Cancellation policy</span></p>' +
       '</div>' +
     '</footer>';
   }
@@ -159,7 +148,7 @@
   function stickyBar() {
     var bar = document.querySelector('.sticky');
     if (!bar) return;
-    var after = parseInt(bar.getAttribute('data-after') || '1200', 10);
+    var after = parseInt(bar.getAttribute('data-after') || '1600', 10);
     var tick = function () { bar.classList.toggle('on', window.scrollY > after); };
     window.addEventListener('scroll', tick, { passive: true });
     tick();

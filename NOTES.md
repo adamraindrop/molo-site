@@ -130,6 +130,56 @@ white, tint, white, tint, white, **Molo Blue**. The closing band on every PDP is
 brand blue, not navy. The quality section is tint with light cards, not a navy
 band with outlined tiles.
 
+## Read the mocks as source, do not scrape them
+
+The first two passes extracted from the mocks by rendering them and reading the
+DOM. That is lossy: everything inside `sc-for` loops and the `class Component`
+logic blocks (plan data, gallery arrays, FAQ text, card lists) either does not
+render as inspectable markup or renders as placeholder counts. Reading the
+`.dc.html` files as text is the only reliable method, and it surfaced a further
+round of mismatches the scrape had missed entirely: header logo file and size,
+the whole footer structure, buy-box plan display, PDP subtitles, and two
+sections that do not exist in my build.
+
+**Rule: open the `.dc.html` in an editor. Do not infer from a render.**
+
+### Corrected in this pass
+- Header logo is `library/logo/blue-logo-4x.png` at 96px, not the SVG at 112px.
+- Footer rebuilt: 72/32/120 padding, 1.2/1/1/1.1/1.4 columns, display-face
+  column heads at 15px, Learn carries two links not four, one combined legal
+  paragraph, four legal links including Cancellation policy, and the email input
+  is `rgba(255,255,255,.08)` on navy rather than white.
+- Buy boxes lead with the **monthly** price and strike the monthly compare
+  price, with the billed total on its own line. Mine led with the term total.
+- Only two plans on every PDP. There is no one-time option in the mocks.
+- Ovulation carries no rating and no "new formula" panel, just a blue
+  `Nurse-formulated · Third-party tested` eyebrow.
+- Prenatal's subtitle is **Preconception Foundation**, not "Prenatal Essentials".
+- Thumb rail is 52px; the sticky gallery offset is 124px.
+- Added the cream "Who it is for" trio to both single-SKU PDPs.
+- Prenatal's ingredient section is six cream cards, not a table.
+- Neither single-SKU PDP has a closing band; both end at "Still deciding? Ask us."
+- Help keeps shipping and subscription in one section.
+
+## ⚠️ The Protocol mock's buy box has stale pricing
+
+`Protocol.dc.html` still carries the landing page's old numbers: `$52.99/mo`,
+struck `$99.98/mo`, `$1.77/day`, "Save 47%", "Billed $158.97 every 90 days".
+Every other surface in the same bundle disagrees:
+
+| Source | Protocol price |
+|---|---|
+| `Protocol.dc.html` buy box | $52.99/mo · $1.77/day · Save 47% |
+| `README.md` | $49.99/mo · $1.67/day · billed $149.99 |
+| `Cart.dc.html` | $149.99, was $224.97, "$49.99/mo" |
+| `Ovulation`/`Prenatal` cross-sell tables | $149.99 · $1.67/day |
+| `Our Story.dc.html` closer | "$1.67/day" |
+| Copy doc §4 | $149.99 · $49.99/mo · $1.67/day · Save 33% |
+
+Six against one. The build uses the corrected figures. **This is the only place
+the build deliberately departs from a mock**, and it needs a decision before the
+Shopify port.
+
 ## Known gaps against the design files
 
 - Page heights are still shorter than the mocks (Protocol 11.6k vs 22.6k at
