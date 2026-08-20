@@ -100,6 +100,36 @@ exactly (Protocol 13, Ovulation 9, Prenatal 10, Our Story 8, Help 7, Cart 1).
 Where a mock and the copy doc disagree, **the mock wins**, because it was built
 from the copy doc and is the later decision.
 
+## Assets come from the mocks, not from inference
+
+An earlier pass pruned unreferenced assets based on what *the build* used, which
+deleted files the mocks actually call for and left the build on Amazon `OFFER-*`
+listing images where the mocks use real pack shots
+(`library/packs/{ovulation,prenatal}-{strawberry-kiwi,black-cherry}-main1.jpg`).
+Those are restored and the PDP galleries now match the mocks image for image.
+
+**Rule: extract the asset list from the mocks, never from the build.**
+
+```bash
+cat _source/design_handoff_molo_site/*.dc.html \
+  | grep -o 'assets/[A-Za-z0-9_./-]*\.\(png\|jpg\|jpeg\|svg\)' | sort -u
+```
+
+Two mock assets do not exist in the bundle: `uploads/MAC-SK-B2.png` and
+`uploads/MAC-BC-B2.png`, the flavour swatch images. CSS colour swatches stand in
+for them (`#F0567F` Strawberry Kiwi, `#8E1F3C` Black Cherry, per the tokens).
+
+Restored images were downscaled to 2000px and recompressed; `MS-8844.jpeg` was a
+7788px camera original at 21MB. Bundle is 19MB.
+
+## Band rhythm is taken from the mocks
+
+Section backgrounds are not decorative choices, they are a rhythm the mocks set
+deliberately. Protocol, in order: white, white, tint, white, tint, white, cream,
+white, tint, white, tint, white, **Molo Blue**. The closing band on every PDP is
+brand blue, not navy. The quality section is tint with light cards, not a navy
+band with outlined tiles.
+
 ## Known gaps against the design files
 
 - Page heights are still shorter than the mocks (Protocol 11.6k vs 22.6k at
@@ -111,3 +141,6 @@ from the copy doc and is the later decision.
   cards, since the cart is a static mock.
 - Our Story's founders-lockup hero image is not in the bundle; I used the
   Rebecca-and-daughter photo instead.
+- The Protocol mock's closing band reads "$1.77/DAY", which is the old lander
+  price. The build uses **$1.67**, per the copy doc §4 pricing correction. The
+  mock is stale on that one number; flag if you want the mock's figure instead.

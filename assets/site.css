@@ -277,6 +277,11 @@ b,strong{font-weight:600}
 .trusttile svg{margin:0 auto 8px;display:block;color:var(--molo-blue)}
 .anchornote{font-size:13.5px;color:var(--molo-gray-3a);margin:14px 0 0;max-width:none;text-align:center}
 
+/* Closing band on the PDPs is Molo Blue in the mocks, not navy. */
+.brandband{background:var(--molo-blue);color:var(--molo-cream)}
+.brandband .h2,.brandband .h1{color:var(--molo-cream)}
+.brandband p{color:rgba(255,255,255,.88)}
+
 /* ---------- review wall -------------------------------------------------- */
 .revgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .rev{background:#fff;border-radius:28px;padding:26px;box-shadow:0 8px 28px rgba(4,36,54,.08)}
