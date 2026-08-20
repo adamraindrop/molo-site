@@ -38,6 +38,11 @@ button{font:inherit}
 
 /* ---------- layout ------------------------------------------------------- */
 .wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+/* In-page jumps (the Protocol closer and sticky target #buy) must clear the
+   sticky header rather than tucking the target underneath it. */
+html{scroll-behavior:smooth}
+[id]{scroll-margin-top:110px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 .wrap-narrow{max-width:880px;margin:0 auto;padding:0 40px}
 .sec{padding:96px 0}
 .sec-sm{padding:64px 0}
