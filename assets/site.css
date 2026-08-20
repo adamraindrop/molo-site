@@ -431,8 +431,9 @@ b,strong{font-weight:600}
 .ftr__tag{margin:18px 0 0;font-size:14px;line-height:1.5;color:rgba(255,255,255,.85);max-width:26ch;font-weight:500}
 .ftr__h{font-family:var(--molo-font-display);font-weight:400;font-size:15px;text-transform:uppercase;
   margin:0 0 14px;color:#fff}
-.ftr__links{display:grid;gap:10px}
-.ftr__links a{font-size:14px;font-weight:500;color:rgba(255,255,255,.8);text-decoration:none;max-width:none}
+.ftr__links{display:grid;gap:2px}
+.ftr__links a{font-size:14px;font-weight:500;color:rgba(255,255,255,.8);text-decoration:none;
+  max-width:none;display:inline-flex;align-items:center;min-height:44px}
 .ftr__links a:hover{color:#fff;text-decoration:underline}
 .ftr__mailhead{font-family:var(--molo-font-display);font-weight:400;font-size:18px;margin:0 0 10px;color:#fff}
 .ftr__mailsub{font-size:13.5px;line-height:1.5;color:rgba(255,255,255,.7);margin:0 0 14px;font-weight:500;max-width:none}
@@ -448,7 +449,7 @@ b,strong{font-weight:600}
 .ftr__rule{max-width:1240px;margin:48px auto 0;padding-top:28px;border-top:1px solid rgba(255,255,255,.18)}
 .ftr__brandline{font-family:var(--molo-font-display);font-weight:400;font-size:20px;
   color:var(--molo-cream);margin:0 0 20px;max-width:none}
-.ftr__legal{font-size:11px;line-height:1.55;color:rgba(255,255,255,.5);margin:0;max-width:none}
+.ftr__legal{font-size:11.5px;line-height:1.6;color:rgba(255,255,255,.55);margin:0;max-width:none}
 .ftr__base{max-width:1240px;margin:22px auto 0;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .ftr__base p{font-size:12px;color:rgba(255,255,255,.6);margin:0;font-weight:500;max-width:none}
 .ftr__base p:last-child{display:flex;gap:18px;flex-wrap:wrap}
@@ -627,7 +628,7 @@ b,strong{font-weight:600}
   .sticky__cta b{font-size:12.5px;letter-spacing:.07em}
   .sticky__cta small{font-size:10.5px}
 
-  .announce{font-size:10.5px;padding:9px 12px;line-height:1.35}
+  .announce{font-size:11.5px;padding:9px 12px;line-height:1.35}
   .hdr{padding:8px 16px;min-height:58px}
   .hdr__logo img{width:92px}
   /* 44px minimum on every control. The logo and cart were 25px and 22px,

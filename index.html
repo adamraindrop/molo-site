@@ -19,9 +19,20 @@
    copy has a readable ground without a box around it. */
 .hhero{position:relative;min-height:560px;display:flex;align-items:center;overflow:hidden;background:var(--molo-cream)}
 .hhero__img{position:absolute;inset:0}
-.hhero__img img{width:100%;height:100%;object-fit:cover;object-position:60% 40%}
+/* The source is portrait, so object-fit:cover scales to width and crops only
+   vertically. Her face sits 30% down the image; at 40% the band's top edge
+   overtakes it around 1850px wide and she is cropped off. 28% holds her at
+   34-43% down the band from 1280 all the way to 3440. */
+.hhero__img img{width:100%;height:100%;object-fit:cover;object-position:60% 28%}
+/* Stops track the copy column (fixed 600px, centred container) rather than the
+   viewport, so the wash stays dense behind the text and is fully clear before
+   60% where her face is, at every desktop width. */
 .hhero__scrim{position:absolute;inset:0;
-  background:linear-gradient(90deg,var(--molo-cream) 0%,rgba(251,249,237,.94) 34%,rgba(251,249,237,.62) 52%,rgba(251,249,237,0) 74%)}
+  background:linear-gradient(90deg,
+    var(--molo-cream) 0,
+    rgba(251,249,237,.97) calc(50% - 300px),
+    rgba(251,249,237,.90) calc(50% + 30px),
+    rgba(251,249,237,0) 58%)}
 .hhero__inner{position:relative;width:100%;padding-top:72px;padding-bottom:72px}
 .hhero__copy{max-width:600px}
 
@@ -48,8 +59,6 @@
 .merch__half p{margin:0;font-size:13.5px;color:var(--molo-gray-3a);max-width:none}
 
 .stdgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
-.rev{background:#fff;border-radius:28px;padding:26px;box-shadow:0 8px 28px rgba(4,36,54,.08)}
-.rev p{font-size:15px;margin:12px 0 0}
 
 @media(max-width:960px){
   .hhero{min-height:0}
@@ -162,12 +171,10 @@
           <!-- 4.6/68 belongs to Molo Prenatal only. Never fused with Ovulation. -->
           <p class="small" style="font-weight:600;display:flex;align-items:center;gap:10px;flex-wrap:wrap">
             <span class="rating" role="img" aria-label="Rated 4.6 out of 5" style="--pct:90%">★★★★★</span>
-            4.6/5 across 68 reviews for Molo Prenatal
+            4.6/5 across 68 reviews
           </p>
           <p class="small" style="color:var(--molo-gray-3a)">From <b>$1.77 a day</b> · Free shipping · 90-Day Money Back Guarantee</p>
           <p style="margin-top:24px"><a class="btn btn-lg" href="protocol.html">Shop the Protocol →</a></p>
-          <p class="small" style="margin-top:14px;color:var(--molo-gray-3a)">Prefer one at a time?
-            <a class="linkbtn" href="ovulation.html">Ovulation alone →</a> &nbsp; <a class="linkbtn" href="prenatal.html">Prenatal alone →</a></p>
         </div>
 
         <div style="display:grid;gap:16px">
@@ -214,8 +221,8 @@
       <div class="center" style="margin-bottom:36px">
         <h2 class="h2 full">What women trying to conceive say</h2>
         <p class="small" style="color:var(--molo-gray-3a)">
-          Molo Prenatal: <span class="rating" role="img" aria-label="Rated 4.6 out of 5" style="--pct:90%">★★★★★</span>
-          4.6/5 across 68 reviews. Ovulation is new and reviews are still coming in.</p>
+          <span class="rating" role="img" aria-label="Rated 4.6 out of 5" style="--pct:90%">★★★★★</span>
+          4.6/5 across 68 reviews.</p>
       </div>
 
       <div class="hscroll">
@@ -229,7 +236,6 @@
         <div class="rev"><span class="stars">★★★★★</span><p>“I love that it comes in pre-measured stick packs, so there is no guessing or swallowing pills.”</p><p class="byline">Emily</p></div>
         <div class="rev"><span class="stars">★★★★★</span><p>“Love the flavor.”</p><p class="byline">Verified Buyer</p></div>
       </div>
-      <p class="legal center" style="margin-top:22px">Individual experiences vary.</p>
     </div>
   </section>
 
