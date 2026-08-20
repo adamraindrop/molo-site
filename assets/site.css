@@ -607,7 +607,6 @@ b,strong{font-weight:600}
   .revgrid,.revgrid--5{grid-template-columns:minmax(0,1fr);gap:14px}
   .kvgrid{grid-template-columns:38% 62%;font-size:13.5px}
   .kvgrid__k,.kvgrid__v{padding:12px 14px}
-    text-transform:uppercase;color:var(--molo-blue);margin-bottom:3px}
   .gtee{padding:48px 0}
   .gtee__inner{padding:0 20px}
   .gtee h2{font-size:23px}
