@@ -22,7 +22,7 @@
 
   var ANNOUNCEMENTS = [
     'Free shipping on every order',
-    '90-Day Window Guarantee, opened bag is fine',
+    '90-Day Money Back Guarantee',
     'Nurse-formulated, third-party tested'
   ];
 
@@ -75,25 +75,25 @@
           '<p style="color:rgba(255,255,255,.72);font-size:14.5px;max-width:26ch">' +
             'Fertility support made by women, for women. Nurse-formulated, third-party tested.</p>' +
         '</div>' +
-        '<div><h4>Shop</h4><ul>' +
+        '<div><h2 class="ftr__h">Shop</h2><ul>' +
           '<li><a href="protocol.html">The Molo Protocol</a></li>' +
           '<li><a href="ovulation.html">Ovulation</a></li>' +
           '<li><a href="prenatal.html">Prenatal</a></li>' +
         '</ul></div>' +
-        '<div><h4>Learn</h4><ul>' +
+        '<div><h2 class="ftr__h">Learn</h2><ul>' +
           '<li><a href="our-story.html">Our Story</a></li>' +
           '<li><a href="our-story.html#rebecca">Rebecca’s Story</a></li>' +
           '<li><a href="our-story.html#christina">The Nurse Who Wrote It</a></li>' +
           '<li><a href="help.html#faq">FAQ</a></li>' +
         '</ul></div>' +
-        '<div><h4>Help</h4><ul>' +
+        '<div><h2 class="ftr__h">Help</h2><ul>' +
           '<li><a href="help.html#contact">Contact Us</a></li>' +
           '<li><a href="help.html#shipping">Shipping</a></li>' +
           '<li><a href="help.html#returns">Returns and Refunds</a></li>' +
           '<li><a href="help.html#guarantee">90-Day Window Guarantee</a></li>' +
           '<li><a href="help.html#subscription">Manage Subscription</a></li>' +
         '</ul></div>' +
-        '<div><h4>Trying, and tired of guessing?</h4>' +
+        '<div><h2 class="ftr__h">Trying, and tired of guessing?</h4>' +
           '<p style="color:rgba(255,255,255,.72);font-size:14.5px;max-width:32ch">' +
             'Once a week, one honest note about preparing your body. No hype, no pregnancy promises.</p>' +
           '<form class="ftr__mail" onsubmit="return false">' +
