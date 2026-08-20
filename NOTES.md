@@ -87,11 +87,25 @@ before more spend goes through it.
 - `support@molotime.com` is assumed; confirm the real address.
 - Delivery window (3 to 5 business days) and refund turnaround are assumed.
 
+## How this was verified against the design files
+
+The first build was made from the handoff README's prose summaries plus the copy
+doc. That was the wrong method and it cost real sections: a section-by-section
+diff against the rendered `.dc.html` mocks found six missing on Protocol, five
+on Ovulation, and five on Prenatal, plus a wrong H1 and closer.
+
+The method now is: render each `.dc.html`, extract its heading outline and
+section text, and diff against the built page. Section counts match the mocks
+exactly (Protocol 13, Ovulation 9, Prenatal 10, Our Story 8, Help 7, Cart 1).
+Where a mock and the copy doc disagree, **the mock wins**, because it was built
+from the copy doc and is the later decision.
+
 ## Known gaps against the design files
 
-- The Protocol design specifies a filterable review wall (All / Taste / Ease)
-  and a scrolling badge marquee below the fold. The marquee is built; the review
-  wall is not yet, and the reviews currently live on Home only.
+- Page heights are still shorter than the mocks (Protocol 11.6k vs 22.6k at
+  desktop). The section list matches; the difference is the mocks' larger image
+  crops and heavier section padding. Worth a pass if you want it matched to the
+  pixel.
 - Cart upsells ("Complete your routine", shown only when the full Protocol is
   not in the bag) are stubbed with the correct show/hide logic but no product
   cards, since the cart is a static mock.

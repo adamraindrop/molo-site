@@ -277,6 +277,17 @@ b,strong{font-weight:600}
 .trusttile svg{margin:0 auto 8px;display:block;color:var(--molo-blue)}
 .anchornote{font-size:13.5px;color:var(--molo-gray-3a);margin:14px 0 0;max-width:none;text-align:center}
 
+/* ---------- review wall -------------------------------------------------- */
+.revgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.rev{background:#fff;border-radius:28px;padding:26px;box-shadow:0 8px 28px rgba(4,36,54,.08)}
+.rev p{font-size:15px;margin:12px 0 0;max-width:none}
+
+/* ---------- "category's problem" table ----------------------------------- */
+/* Two narrow columns both wrap at phone width and the rows lose their rhythm,
+   so each row restacks into a label over a full-width statement. */
+.probtbl .tbl td:first-child{font-weight:600}
+.probtbl .tbl td:last-child{color:var(--molo-gray-3a)}
+
 /* ---------- guarantee block --------------------------------------------- */
 /* Traced from Protocol.dc.html: white section, 88px padding, 860px centred
    column, blue 44px shield, chip eyebrow (not the plain blue eyebrow), 30px
@@ -491,6 +502,15 @@ b,strong{font-weight:600}
   .tbl td,.tbl th{padding:11px 12px;font-size:13.5px}
   .rowsub{font-size:12.5px}
   .acc summary{font-size:17px;padding:18px 0}
+  .revgrid{grid-template-columns:minmax(0,1fr);gap:14px}
+  .probtbl .tbl,.probtbl .tbl thead,.probtbl .tbl tbody,.probtbl .tbl tr{display:block}
+  .probtbl .tbl thead th{display:block;width:auto;padding:13px 20px;font-size:12px;letter-spacing:.08em}
+  .probtbl .tbl tbody tr{padding:14px 20px;border-top:1px solid var(--molo-gray-e5)}
+  .probtbl .tbl tbody tr:first-child{border-top:0}
+  .probtbl .tbl tbody td{display:block;padding:0;width:auto}
+  .probtbl .tbl tbody td:first-child{font-size:11px;font-weight:600;letter-spacing:.13em;
+    text-transform:uppercase;color:var(--molo-blue);margin-bottom:3px}
+  .probtbl .tbl tbody td:last-child{font-size:14.5px;line-height:1.45}
   .gtee{padding:48px 0}
   .gtee__inner{padding:0 20px}
   .gtee h2{font-size:23px}
