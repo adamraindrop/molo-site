@@ -18,7 +18,14 @@
 /* Full-bleed hero: the photo sits behind a left-to-right cream scrim so the
    copy has a readable ground without a box around it. */
 .hhero{position:relative;min-height:560px;display:flex;align-items:center;overflow:hidden;background:var(--molo-cream)}
-.hhero__img{position:absolute;inset:0}
+/* A portrait source under object-fit:cover has no horizontal freedom in a wide
+   box, so object-position cannot move her sideways. Insetting the image box
+   from the left does: at left:20% her face lands at 68% of the viewport rather
+   than 60%. The mask dissolves the box's left edge into the cream so there is
+   no seam, which also means the scrim over her can be much lighter. */
+.hhero__img{position:absolute;top:0;right:0;bottom:0;left:20%;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 30%);
+          mask-image:linear-gradient(90deg,transparent 0,#000 30%)}
 /* The source is portrait, so object-fit:cover scales to width and crops only
    vertically. Her face sits 30% down the image; at 40% the band's top edge
    overtakes it around 1850px wide and she is cropped off. 28% holds her at
@@ -29,12 +36,21 @@
    60% where her face is, at every desktop width. */
 .hhero__scrim{position:absolute;inset:0;
   background:linear-gradient(90deg,
-    var(--molo-cream) 0,
-    rgba(251,249,237,.97) calc(50% - 300px),
-    rgba(251,249,237,.90) calc(50% + 30px),
-    rgba(251,249,237,0) 58%)}
+    rgba(251,249,237,.92) 0,
+    rgba(251,249,237,.80) 38%,
+    rgba(251,249,237,.32) 54%,
+    rgba(251,249,237,0) 64%)}
 .hhero__inner{position:relative;width:100%;padding-top:72px;padding-bottom:72px}
 .hhero__copy{max-width:600px}
+@media(max-width:1200px){.hhero__copy{max-width:520px}}
+/* Below ~830 the copy column would run into her, so the hero drops the
+   side-by-side treatment and washes vertically instead. */
+@media(max-width:900px){
+  .hhero{min-height:0}
+  .hhero__img{left:0;-webkit-mask-image:none;mask-image:none}
+  .hhero__img img{object-position:65% 32%}
+  .hhero__scrim{background:linear-gradient(180deg,rgba(251,249,237,.30) 0%,rgba(251,249,237,.90) 54%,var(--molo-cream) 80%)}
+}
 
 /* Founders: two equal cards, 168px circular portraits with a 5px blue ring. */
 .founders{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px}
@@ -61,9 +77,6 @@
 .stdgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
 
 @media(max-width:960px){
-  .hhero{min-height:0}
-  .hhero__img img{object-position:65% 35%}
-  .hhero__scrim{background:linear-gradient(180deg,rgba(251,249,237,.35) 0%,rgba(251,249,237,.92) 52%,var(--molo-cream) 78%)}
   .founders,.merch,.stdgrid{grid-template-columns:minmax(0,1fr);gap:22px}
   .quoteband{grid-template-columns:minmax(0,1fr);padding:32px;gap:22px}
   .quoteband p{font-size:21px}
