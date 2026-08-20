@@ -19,10 +19,22 @@
 .navy .pullquote{color:var(--molo-cream)}
 .vidrow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:32px}
 .statgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.statgrid--2{grid-template-columns:repeat(2,minmax(0,1fr));max-width:760px;margin:24px auto 0}
+.statnote{text-align:center;font-size:14.5px;font-style:italic;color:var(--molo-gray-3a);
+  margin:24px auto 0;max-width:none}
+/* Christina's headshot sits over the corner of the lawn shot, per the mock. */
+.herofig{position:relative}
+.herofig__badge{position:absolute;right:-18px;bottom:-18px;width:148px;height:148px;border-radius:50%;
+  object-fit:cover;object-position:top;border:6px solid var(--molo-blue);background:#fff;
+  box-shadow:0 14px 40px rgba(4,36,54,.18)}
+.closer{position:relative;overflow:hidden}
+.closer__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.32}
 .statgrid .n{font-family:var(--molo-font-display);font-weight:400;font-size:40px;color:var(--molo-blue);margin:0 0 8px}
 .round{width:100%;max-width:360px;aspect-ratio:1;border-radius:50%;overflow:hidden;border:6px solid var(--molo-blue)}
 .round img{width:100%;height:100%;object-fit:cover;object-position:top}
-@media(max-width:960px){.vidrow,.statgrid{grid-template-columns:minmax(0,1fr)}.round{max-width:260px}}
+@media(max-width:960px){.vidrow,.statgrid{grid-template-columns:minmax(0,1fr)}
+  .statgrid--2{grid-template-columns:minmax(0,1fr)}.round{max-width:260px}
+  .herofig__badge{width:110px;height:110px;right:0;bottom:-14px;border-width:5px}}
 @media(max-width:640px){
   .pullquote{font-size:20px;margin:20px 0}
   /* Three 101px video cards are unreadable; swipe row with the first card whole. */
@@ -30,7 +42,12 @@
     scrollbar-width:none;padding-bottom:4px}
   .vidrow::-webkit-scrollbar{display:none}
   .vidrow>.vid{flex:0 0 74%;scroll-snap-align:start}
-  .statgrid{grid-template-columns:1fr 1fr;gap:18px}
+  /* 1fr is minmax(auto,1fr): "$10,000+" sets a min-content floor that blows
+     the column past 375. The two-up row stacks instead. */
+  .statgrid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
+  .statgrid--2{grid-template-columns:minmax(0,1fr);margin-top:18px}
+  .herofig__badge{width:84px;height:84px;border-width:4px}
+  .statnote{font-size:13.5px}
   .statgrid .n{font-size:30px}
   .round{max-width:200px;border-width:4px}
 }
@@ -45,10 +62,13 @@
 <section class="sec cream">
   <div class="wrap">
     <div class="grid2">
-      <div class="imgframe" style="aspect-ratio:1.1"><img src="assets/rebecca-with-toddler-outdoors.png" alt="Rebecca Zamolo sitting on the grass with her daughter"></div>
+      <div class="herofig">
+        <div class="imgframe" style="aspect-ratio:.92"><img src="assets/library/lifestyle/1822.jpg" alt="Rebecca Zamolo with her daughter on the lawn, Molo cartons beside them"></div>
+        <img class="herofig__badge" src="assets/christina-westbrook-headshot.png" alt="Christina Westbrook, MBA, MSN">
+      </div>
       <div>
         <p class="eyebrow">Our story</p>
-        <h1 class="h1">Two women made this. One wrote the protocol. One lived it.</h1>
+        <h1 class="h1">Two women made this. <span style="color:var(--molo-blue)">One wrote the protocol. One lived it.</span></h1>
         <p class="lead">Molo was built by a fertility nurse and a patient, which is an unusual way to start a supplement company and the reason this one is different. Everything here came out of a real clinic, for a real woman, before it was ever a product.</p>
         <p class="pullquote" style="font-size:22px;margin-bottom:0">Empower your journey to motherhood.</p>
       </div>
@@ -68,10 +88,10 @@
 </section>
 
 <!-- REBECCA ---------------------------------------------------------------- -->
-<section class="sec" id="rebecca">
+<section class="sec cream" id="rebecca">
   <div class="wrap">
     <div class="grid2 top">
-      <div class="imgframe" style="aspect-ratio:.86;position:sticky;top:96px"><img src="assets/rebecca-with-newborn-zadie.png" alt="Rebecca Zamolo with her newborn daughter"></div>
+      <div class="imgframe" style="aspect-ratio:.86;position:sticky;top:96px"><img src="assets/library/lifestyle/IMG-8134.jpg" alt="Rebecca Zamolo in a soft pink robe, hand resting on her belly"></div>
       <div>
         <p class="eyebrow">The patient</p>
         <h2 class="h2">Rebecca Zamolo</h2>
@@ -94,9 +114,9 @@
             <div class="vidmeta"><p style="font-size:13.5px;font-weight:600;line-height:1.35">I’M PREGNANT</p><p style="font-size:12.5px;color:var(--molo-gray-98);margin-top:4px">5.1M views</p></div>
           </div>
           <div class="vid" style="background:var(--molo-gray-f4)">
-            <button class="vidbtn" data-open="video" data-video="apetyGSD_RQ" aria-label="Play: Meeting Our Baby Girl">
+            <button class="vidbtn" data-open="video" data-video="apetyGSD_RQ" aria-label="Play: Meeting Our Baby Girl For the First Time">
               <img src="assets/lp/yt-birth.jpg" alt=""><span class="vidscrim"><i><svg width="17" height="19" viewBox="0 0 17 19" aria-hidden="true"><path d="M16 8.2a1.5 1.5 0 010 2.6L2.7 18.3A1.5 1.5 0 010 17V2a1.5 1.5 0 012.2-1.3z" fill="var(--molo-navy)"/></svg></i></span></button>
-            <div class="vidmeta"><p style="font-size:13.5px;font-weight:600;line-height:1.35">Meeting Our Baby Girl</p><p style="font-size:12.5px;color:var(--molo-gray-98);margin-top:4px">21.5M views</p></div>
+            <div class="vidmeta"><p style="font-size:13.5px;font-weight:600;line-height:1.35">Meeting Our Baby Girl For the First Time</p><p style="font-size:12.5px;color:var(--molo-gray-98);margin-top:4px">21.5M views</p></div>
           </div>
         </div>
       </div>
@@ -113,12 +133,11 @@
     <p class="eyebrow" style="color:var(--molo-sky-light)">The moment</p>
     <h2 class="h2 full">After her second loss, her nurse asked her a question nobody else had.</h2>
     <p class="pullquote" style="font-size:38px;max-width:none;margin:30px 0">“What are you taking?”</p>
-    <p>Rebecca said: a prenatal.</p>
+    <p>Rebecca said: a prenatal. Christina gave her a list, and told her to take it for three months.</p>
     <p>Christina gave her a list, and told her to take it for three months.</p>
     <p class="pullquote">“It was 14 giant horse pills and I took them every day because I wanted to get pregnant. I complained about it, but she told me that all her patients complain because it’s not fun.”</p>
     <p style="font-size:14px;color:var(--molo-sky-light);font-weight:600">Rebecca Zamolo</p>
     <p class="pullquote">“Once I got pregnant, I was happy to have gotten pregnant, but there had to be an easier way for women to find the right supplements that they need.”</p>
-    <p>That sentence is the product spec. Molo is that list, in two drinks.</p>
   </div>
 </section>
 
@@ -137,9 +156,9 @@
     </div>
 
     <div class="grid3" style="margin-top:44px">
-      <div class="card"><h3 class="h4">A career in fertility nursing</h3><p>Spent inside fertility clinics, and now running nursing for one.</p></div>
-      <div class="card"><h3 class="h4">Written for a patient, not a market</h3><p>Both formulas trace back to a list she wrote by hand for one woman who needed it.</p></div>
-      <div class="card"><h3 class="h4">Designed by women, for women</h3><p>Two founders. One wrote the protocol, one lived it.</p></div>
+      <div class="card"><h3 class="h4">A career in fertility nursing</h3><p>Spent inside fertility clinics, and now running nursing for one</p></div>
+      <div class="card"><h3 class="h4">Written for a patient, not a market</h3><p>Both formulas trace back to a list she wrote by hand for one woman who needed it</p></div>
+      <div class="card"><h3 class="h4">Designed by women, for women</h3><p>Two founders. One wrote the protocol, one lived it</p></div>
     </div>
   </div>
 </section>
@@ -157,34 +176,39 @@
 </section>
 
 <!-- SCALE ------------------------------------------------------------------ -->
-<section class="sec tint">
+<section class="sec cream">
   <div class="wrap">
     <div class="center" style="margin-bottom:40px">
       <p class="eyebrow">Why this matters</p>
       <h2 class="h2 full">If this is your year, you are in a very large room.</h2>
     </div>
     <div class="statgrid">
-      <div class="card center"><p class="n">1 in 6</p><p>People of reproductive age affected by infertility worldwide</p></div>
-      <div class="card center"><p class="n">85%</p><p>Of women say they were never told the cycle side was a separate job</p></div>
-      <div class="card center"><p class="n">90 days</p><p>Roughly how long a follicle takes to finish maturing</p></div>
+      <div class="card center"><p class="n">1 in 6</p><p>adults worldwide experience infertility at some point</p></div>
+      <div class="card center"><p class="n">1 in 10</p><p>women of childbearing age have PCOS</p></div>
+      <div class="card center"><p class="n">12%</p><p>of women have difficulty getting pregnant or carrying to term</p></div>
     </div>
-    <p class="legal center" style="margin-top:22px">Figures pending final sourcing before publish.</p>
+    <div class="statgrid statgrid--2">
+      <div class="card center"><p class="n">$10,000+</p><p>is a common out-of-pocket cost for fertility services, usually not covered by insurance</p></div>
+      <div class="card center"><p class="n">33%</p><p>of Americans have used fertility treatment or know someone who has</p></div>
+    </div>
+    <p class="statnote">Most of the women in those numbers are handling it quietly, the way Rebecca did until she decided not to.</p>
   </div>
 </section>
 
 <!-- CLOSER ----------------------------------------------------------------- -->
-<section class="sec-sm navy">
-  <div class="wrap center">
+<section class="sec-sm navy closer">
+  <img class="closer__bg" src="assets/rebecca-with-toddler-outdoors.png" alt="" loading="lazy">
+  <div class="wrap center" style="position:relative">
     <h2 class="h2 full" style="margin-bottom:20px">Empower your journey to motherhood.</h2>
-    <p style="margin:0 auto 26px;max-width:52ch">Two jobs. Two drinks. A routine you can actually keep.</p>
-    <p><a class="btn btn-cream btn-lg" href="protocol.html">Start the Protocol →</a></p>
+    <p style="margin:0 auto 26px;max-width:52ch">Two jobs. One routine. Better outcomes.</p>
+    <p><a class="btn btn-cream btn-lg" href="protocol.html">Start the Protocol · $1.77/day</a></p>
   </div>
 </section>
 </main>
 
 <div class="ovl ovl--video" id="video" hidden role="dialog" aria-modal="true" aria-label="Video">
   <button class="ovl__x" aria-label="Close" style="position:fixed;top:18px;right:18px">✕</button>
-  <div class="ovl__video"><iframe src="" title="Rebecca Zamolo video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+  <div class="ovl__video"><iframe src="about:blank" title="Rebecca Zamolo video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
 </div>
 
 <div id="site-footer"></div>
