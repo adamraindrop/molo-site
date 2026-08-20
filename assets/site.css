@@ -84,7 +84,8 @@ p:last-child{margin-bottom:0}
 .small{font-size:14px;line-height:1.5}
 .legal{font-size:12px;line-height:1.55;color:var(--molo-gray-98);max-width:none}
 .center{text-align:center}
-.center p,.center .h2,.center .lead{margin-left:auto;margin-right:auto}
+.center p,.center .h2,.center .lead,
+.gtee__inner p,.gtee__inner .h2{margin-left:auto;margin-right:auto}
 b,strong{font-weight:600}
 
 /* ---------- buttons ------------------------------------------------------ */
@@ -116,8 +117,13 @@ b,strong{font-weight:600}
 .pillrow{display:flex;flex-wrap:wrap;gap:10px}
 .stars{color:var(--molo-blue);letter-spacing:.08em;font-size:14px}
 /* Half star: a gray base string with a blue copy clipped over it. */
-.rating{position:relative;display:inline-block;color:var(--molo-gray-ca);letter-spacing:.08em;font-size:15px}
-.rating i{position:absolute;left:0;top:0;overflow:hidden;white-space:nowrap;color:var(--molo-blue);font-style:normal}
+/* The filled portion is generated content, so the stars exist once in the
+   DOM. A second literal string would render correctly but copy, extract and
+   read back as ten stars. --pct is the fill width. */
+.rating{position:relative;display:inline-block;color:var(--molo-gray-ca);
+  letter-spacing:.08em;font-size:15px;white-space:nowrap}
+.rating::before{content:"\2605\2605\2605\2605\2605";position:absolute;left:0;top:0;
+  width:var(--pct,90%);overflow:hidden;white-space:nowrap;color:var(--molo-blue)}
 .byline{font-size:12.5px;color:var(--molo-gray-3a);font-weight:600;margin:12px 0 0}
 
 .card{background:#fff;border-radius:40px;box-shadow:0 8px 28px rgba(4,36,54,.08);padding:32px}
