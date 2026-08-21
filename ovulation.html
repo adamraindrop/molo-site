@@ -39,16 +39,18 @@
   <div class="wrap">
     <div class="pdp">
 
-      <div class="gallery" data-gallery>
+      <div class="gallery" data-gallery data-flavor-base="assets/library/listing/ovulation-">
         <div class="galgrid">
           <div class="galrail">
-            <button class="thumb" aria-selected="true" aria-label="Strawberry Kiwi pack" data-alt="Molo Ovulation, Strawberry Kiwi"><img src="assets/library/packs/ovulation-strawberry-kiwi-main1.jpg" alt=""></button>
-            <button class="thumb" aria-selected="false" aria-label="Black Cherry pack" data-alt="Molo Ovulation, Black Cherry"><img src="assets/library/packs/ovulation-black-cherry-main1.jpg" alt=""></button>
-            <button class="thumb" aria-selected="false" aria-label="Benefits" data-alt="Supports fertility, ovarian health and cycle regularity"><img src="assets/lp/OFFER-2-ovulation-benefits.jpg" alt=""></button>
-            <button class="thumb" aria-selected="false" aria-label="Ingredients" data-alt="Inositol blend, pomegranate and green tea, vitamin D3 and K2"><img src="assets/lp/OFFER-4-ovulation-glow.jpg" alt=""></button>
-            <button class="thumb" aria-selected="false" aria-label="How to use" data-alt="No bulky pills: tear, mix with water, drink"><img src="assets/lp/OFFER-5-ovulation-no-pills.jpg" alt=""></button>
+            <button class="thumb" aria-selected="true" aria-label="Strawberry Kiwi pack" data-card="pack" data-alt="Molo Ovulation Strawberry Kiwi, 30 stick packs" data-alt-tpl="Molo Ovulation {flavor}, 30 stick packs"><img src="assets/library/listing/ovulation-strawberry-kiwi-pack.jpg" alt=""></button>
+            <button class="thumb" aria-selected="false" aria-label="Benefits" data-card="benefits" data-alt="Supports fertility, ovarian health and cycle regularity"><img src="assets/library/listing/ovulation-strawberry-kiwi-benefits.jpg" alt=""></button>
+            <button class="thumb" aria-selected="false" aria-label="Balanced and energized" data-card="balanced" data-alt="Promotes hormonal balance, supports ovulatory function, gentle on the stomach"><img src="assets/library/listing/ovulation-strawberry-kiwi-balanced.jpg" alt=""></button>
+            <button class="thumb" aria-selected="false" aria-label="What is in it" data-card="formulated" data-alt="Inositol blend, vitamin D3 and K2, pomegranate and green tea, zinc"><img src="assets/library/listing/ovulation-strawberry-kiwi-formulated.jpg" alt=""></button>
+            <button class="thumb" aria-selected="false" aria-label="Glow from the inside out" data-card="glow" data-alt="Inositol blend, pomegranate and green tea extract, vitamin D3 and K2"><img src="assets/library/listing/ovulation-strawberry-kiwi-glow.jpg" alt=""></button>
+            <button class="thumb" aria-selected="false" aria-label="How to use" data-card="how-to-use" data-alt="No bulky pills: tear, mix with water, drink"><img src="assets/library/listing/ovulation-strawberry-kiwi-how-to-use.jpg" alt=""></button>
+            <button class="thumb" aria-selected="false" aria-label="Why we made it" data-alt="Rebecca Zamolo and nurse Christina Westbrook on why they created Molo"><img src="assets/library/listing/molo-science-backed.jpg" alt=""></button>
           </div>
-          <div class="stage"><img src="assets/library/packs/ovulation-strawberry-kiwi-main1.jpg" alt="Molo Ovulation, Strawberry Kiwi" fetchpriority="high"></div>
+          <div class="stage"><img src="assets/library/listing/ovulation-strawberry-kiwi-pack.jpg" alt="Molo Ovulation Strawberry Kiwi, 30 stick packs" fetchpriority="high"></div>
         </div>
         <button class="btn btn-ghost btn-block" style="margin-top:16px" data-open="facts">View Supplement Facts</button>
       </div>
@@ -307,7 +309,19 @@ window.MoloPage = function () {
       cta=document.getElementById('cta'),upsell=document.getElementById('upsell');
   var COPY={'3':{cta:'Start my 90 days',mix:true},'1':{cta:'Start monthly',mix:false}};
   function plan(){var e=plans.querySelector('.plan[aria-checked="true"]');return e?e.getAttribute('data-plan'):'3';}
-  function pick(b){if(!b||b.disabled)return;flavors.querySelectorAll('.flavor').forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});flavName.textContent=b.getAttribute('data-flavor');}
+  /* Mix both has no pack shot of its own, so it borrows Strawberry Kiwi's. */
+  var GAL=document.querySelector('[data-gallery]');
+  var FLAVOR={'Strawberry Kiwi':['strawberry-kiwi','Strawberry Kiwi'],
+              'Black Cherry':['black-cherry','Black Cherry'],
+              'Mix both':['strawberry-kiwi','Strawberry Kiwi']};
+  function pick(b){
+    if(!b||b.disabled)return;
+    flavors.querySelectorAll('.flavor').forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});
+    var name=b.getAttribute('data-flavor');
+    flavName.textContent=name;
+    var f=FLAVOR[name]||FLAVOR['Strawberry Kiwi'];
+    if(GAL&&GAL.moloSetFlavor)GAL.moloSetFlavor(f[0],f[1]);
+  }
   function sync(){
     var mixOk=COPY[plan()].mix,m=flavors.querySelector('[data-mixonly]');
     m.disabled=!mixOk;m.style.opacity=mixOk?'':'.45';m.style.cursor=mixOk?'pointer':'not-allowed';

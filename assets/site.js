@@ -260,6 +260,25 @@
         t.addEventListener('click', function () { select(i); });
       });
 
+      /* Flavour-linked gallery (the Ovulation PDP). Thumbs carrying a
+         data-card swap their file when the buy box changes flavour; a thumb
+         without one is flavour-agnostic and stays put, which is how the
+         founders panel survives the swap. */
+      var flavourBase = g.getAttribute('data-flavor-base');
+      if (flavourBase) {
+        g.moloSetFlavor = function (slug, label) {
+          thumbs.forEach(function (t) {
+            var card = t.getAttribute('data-card');
+            if (!card) return;
+            var im = t.querySelector('img');
+            if (im) im.src = flavourBase + slug + '-' + card + '.jpg';
+            var tpl = t.getAttribute('data-alt-tpl');
+            if (tpl) t.setAttribute('data-alt', tpl.replace('{flavor}', label));
+          });
+          select(current);   /* repaint the stage from the thumb now showing */
+        };
+      }
+
       /* A single image has nothing to page through. */
       if (thumbs.length < 2) return;
 
