@@ -260,24 +260,24 @@
         t.addEventListener('click', function () { select(i); });
       });
 
-      /* Flavour-linked gallery (the Ovulation PDP). Thumbs carrying a
-         data-card swap their file when the buy box changes flavour; a thumb
-         without one is flavour-agnostic and stays put, which is how the
-         founders panel survives the swap. */
-      var flavourBase = g.getAttribute('data-flavor-base');
-      if (flavourBase) {
-        g.moloSetFlavor = function (slug, label) {
-          thumbs.forEach(function (t) {
-            var card = t.getAttribute('data-card');
-            if (!card) return;
+      /* Flavour-linked gallery. A thumb opts in with data-flavor-src, a path
+         template carrying a {flavor} token; a thumb without one is
+         flavour-agnostic and stays put, which is how the Protocol offer shot
+         and the founders panel survive the swap. Templates live per thumb
+         rather than as one shared prefix because the Protocol bundle drives
+         both Ovulation and Prenatal images from a single picker. */
+      g.moloSetFlavor = function (slug, label) {
+        thumbs.forEach(function (t) {
+          var tpl = t.getAttribute('data-flavor-src');
+          if (tpl) {
             var im = t.querySelector('img');
-            if (im) im.src = flavourBase + slug + '-' + card + '.jpg';
-            var tpl = t.getAttribute('data-alt-tpl');
-            if (tpl) t.setAttribute('data-alt', tpl.replace('{flavor}', label));
-          });
-          select(current);   /* repaint the stage from the thumb now showing */
-        };
-      }
+            if (im) im.src = tpl.replace(/\{flavor\}/g, slug);
+          }
+          var alt = t.getAttribute('data-alt-tpl');
+          if (alt) t.setAttribute('data-alt', alt.replace(/\{flavor\}/g, label));
+        });
+        select(current);   /* repaint the stage from the thumb now showing */
+      };
 
       /* A single image has nothing to page through. */
       if (thumbs.length < 2) return;

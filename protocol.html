@@ -38,13 +38,17 @@
         <div class="galgrid">
           <div class="galrail">
             <button class="thumb" aria-selected="true" aria-label="The Protocol offer" data-alt="Molo Ovulation and Prenatal with the free shaker. Nurse-formulated, two sticks a day, no added sugar, third-party tested."><img src="assets/lp/HERO-BUYBOX-blush.jpg" alt=""></button>
-            <button class="thumb" aria-selected="false" aria-label="Ovulation pack" data-alt="Molo Ovulation, 30 stick packs"><img src="assets/lp/OFFER-1-ovulation-pack.jpg" alt=""></button>
-            <button class="thumb" aria-selected="false" aria-label="Prenatal pack" data-alt="Molo Prenatal, 30 stick packs"><img src="assets/lp/OFFER-6-prenatal-pack.jpg" alt=""></button>
-            <button class="thumb" aria-selected="false" aria-label="Ovulation Black Cherry" data-alt="Molo Ovulation, Black Cherry"><img src="assets/library/packs/ovulation-black-cherry-main1.jpg" alt=""></button>
-            <button class="thumb" aria-selected="false" aria-label="Prenatal Strawberry Kiwi" data-alt="Molo Prenatal, Strawberry Kiwi"><img src="assets/library/packs/prenatal-strawberry-kiwi-main1.jpg" alt=""></button>
-            <button class="thumb" aria-selected="false" aria-label="Ovulation benefits" data-alt="Supports fertility, ovarian health and cycle regularity"><img src="assets/lp/OFFER-2-ovulation-benefits.jpg" alt=""></button>
-            <button class="thumb" aria-selected="false" aria-label="Prenatal benefits" data-alt="Prepare your body for motherhood"><img src="assets/lp/OFFER-7-prenatal-prepare.jpg" alt=""></button>
-            <button class="thumb" aria-selected="false" aria-label="In use" data-alt="Molo in a real morning routine"><img src="assets/library/lifestyle/IMG-8139.jpg" alt=""></button>
+            <button class="thumb" aria-selected="false" aria-label="Ovulation — Benefits" data-alt="Supports fertility, ovarian health and cycle regularity" data-flavor-src="assets/library/listing/ovulation-{flavor}-benefits.jpg"><img src="assets/library/listing/ovulation-strawberry-kiwi-benefits.jpg" alt=""></button>
+            <button class="thumb" aria-selected="false" aria-label="Ovulation — Balanced and energized" data-alt="Promotes hormonal balance, supports ovulatory function, gentle on the stomach" data-flavor-src="assets/library/listing/ovulation-{flavor}-balanced.jpg"><img src="assets/library/listing/ovulation-strawberry-kiwi-balanced.jpg" alt=""></button>
+            <button class="thumb" aria-selected="false" aria-label="Ovulation — What is in it" data-alt="Inositol blend, vitamin D3 and K2, pomegranate and green tea, zinc" data-flavor-src="assets/library/listing/ovulation-{flavor}-formulated.jpg"><img src="assets/library/listing/ovulation-strawberry-kiwi-formulated.jpg" alt=""></button>
+            <button class="thumb" aria-selected="false" aria-label="Ovulation — Glow from the inside out" data-alt="Inositol blend, pomegranate and green tea extract, vitamin D3 and K2" data-flavor-src="assets/library/listing/ovulation-{flavor}-glow.jpg"><img src="assets/library/listing/ovulation-strawberry-kiwi-glow.jpg" alt=""></button>
+            <button class="thumb" aria-selected="false" aria-label="Ovulation — How to use" data-alt="No bulky pills: tear, mix with water, drink" data-flavor-src="assets/library/listing/ovulation-{flavor}-how-to-use.jpg"><img src="assets/library/listing/ovulation-strawberry-kiwi-how-to-use.jpg" alt=""></button>
+            <button class="thumb" aria-selected="false" aria-label="Prenatal — Benefits" data-alt="Provides vitamins to support pregnancy, fetal development and fertility" data-flavor-src="assets/library/listing/prenatal-{flavor}-benefits.jpg"><img src="assets/library/listing/prenatal-strawberry-kiwi-benefits.jpg" alt=""></button>
+            <button class="thumb" aria-selected="false" aria-label="Prenatal — Prepare your body" data-alt="Prepare your body for motherhood" data-flavor-src="assets/library/listing/prenatal-{flavor}-balanced.jpg"><img src="assets/library/listing/prenatal-strawberry-kiwi-balanced.jpg" alt=""></button>
+            <button class="thumb" aria-selected="false" aria-label="Prenatal — What is in it" data-alt="Folate, choline, DHA, iron and the prenatal micronutrients" data-flavor-src="assets/library/listing/prenatal-{flavor}-formulated.jpg"><img src="assets/library/listing/prenatal-strawberry-kiwi-formulated.jpg" alt=""></button>
+            <button class="thumb" aria-selected="false" aria-label="Prenatal — Glow from the inside out" data-alt="The nutrients behind skin, energy and hormonal balance" data-flavor-src="assets/library/listing/prenatal-{flavor}-glow.jpg"><img src="assets/library/listing/prenatal-strawberry-kiwi-glow.jpg" alt=""></button>
+            <button class="thumb" aria-selected="false" aria-label="Prenatal — How to use" data-alt="No bulky pills: tear, mix with water, drink" data-flavor-src="assets/library/listing/prenatal-{flavor}-how-to-use.jpg"><img src="assets/library/listing/prenatal-strawberry-kiwi-how-to-use.jpg" alt=""></button>
+            <button class="thumb" aria-selected="false" aria-label="Why we made it" data-alt="Rebecca Zamolo and nurse Christina Westbrook on why they created Molo"><img src="assets/library/listing/molo-science-backed.jpg" alt=""></button>
           </div>
           <div class="stage"><img src="assets/lp/HERO-BUYBOX-blush.jpg" alt="Molo Ovulation and Prenatal with the free shaker. Nurse-formulated, two sticks a day, no added sugar, third-party tested." fetchpriority="high"></div>
         </div>
@@ -570,12 +574,23 @@ window.MoloPage = function () {
     gift.hidden = currentPlan() !== '3';
   }
 
+  /* One picker drives both products' slides. Mix both has no photography of
+     its own, so it borrows Strawberry Kiwi — the same flavour this page already
+     falls back to when a monthly plan takes mix away. */
+  var GAL = document.querySelector('[data-gallery]');
+  var FLAVOR = { 'Strawberry Kiwi': ['strawberry-kiwi', 'Strawberry Kiwi'],
+                 'Black Cherry':    ['black-cherry', 'Black Cherry'],
+                 'Mix both':        ['strawberry-kiwi', 'Strawberry Kiwi'] };
+
   function pickFlavor(btn) {
     if (!btn || btn.disabled) return;
     flavors.querySelectorAll('.flavor').forEach(function (b) {
       b.setAttribute('aria-pressed', String(b === btn));
     });
-    flavName.textContent = btn.getAttribute('data-flavor');
+    var name = btn.getAttribute('data-flavor');
+    flavName.textContent = name;
+    var f = FLAVOR[name] || FLAVOR['Strawberry Kiwi'];
+    if (GAL && GAL.moloSetFlavor) GAL.moloSetFlavor(f[0], f[1]);
   }
 
   flavors.querySelectorAll('.flavor').forEach(function (b) {
@@ -595,6 +610,9 @@ window.MoloPage = function () {
   });
 
   syncFlavors();
+  /* Mix both is pre-selected in the markup, so paint the gallery once on load
+     rather than waiting for a click that may never come. */
+  pickFlavor(flavors.querySelector('.flavor[aria-pressed="true"]'));
 };
 </script>
 </body>
