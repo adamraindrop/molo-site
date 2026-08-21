@@ -277,6 +277,15 @@ b,strong{font-weight:600}
 .gallery{position:sticky;top:96px}
 .galgrid{display:grid;grid-template-columns:64px minmax(0,1fr);gap:14px;align-items:start}
 .galrail{display:grid;gap:8px}
+/* The rail must never run past the image. The stage is square and its width is
+   the grid minus the 52px rail column and the 12px gap, so its height is
+   (container inline size - 64px) — expressible without hard-coding a breakpoint
+   because .galgrid is a query container. Scrollbar hidden to match the phone
+   rail; the arrows keep the active thumb in view, and the part-cut thumb at the
+   fold is the signal that there is more. */
+.galgrid{container-type:inline-size}
+.galrail{max-height:calc(100cqw - 64px);overflow-y:auto;scrollbar-width:none}
+.galrail::-webkit-scrollbar{display:none}
 .thumb{width:64px;height:64px;border-radius:14px;border:2px solid var(--molo-gray-e5);
   background:var(--molo-gray-f4);cursor:pointer;overflow:hidden;padding:0}
 .thumb[aria-selected=true]{border-color:var(--molo-blue)}
@@ -588,7 +597,7 @@ b,strong{font-weight:600}
      rail is what puts the image first. */
   .galgrid{grid-template-columns:minmax(0,1fr)!important;gap:10px!important}
   .galrail{grid-auto-flow:column;grid-auto-columns:56px;gap:8px!important;overflow-x:auto;
-    order:2;padding-bottom:2px;scrollbar-width:none}
+    overflow-y:hidden;max-height:none;order:2;padding-bottom:2px;scrollbar-width:none}
   .galrail::-webkit-scrollbar{display:none}
   .galrail .thumb{width:56px;height:56px}
 

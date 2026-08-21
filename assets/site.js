@@ -241,17 +241,24 @@
            stage but left the active thumb off-screen would look half-broken.
            Scroll the rail itself, never scrollIntoView — that would drag the
            whole page vertically as a side effect. */
-        if (rail && rail.scrollWidth > rail.clientWidth) {
-          /* Measured off rects, not offsetLeft: .gallery is position:sticky, so
-             it is the offsetParent and offsetLeft is relative to it rather than
-             to the rail's scroll content. That silently never scrolled. */
+        /* Keep the active thumb in view. The rail scrolls sideways under 640
+           and vertically above it, where it is capped to the stage height, so
+           both axes have to be handled. Measured off rects, not offsetTop or
+           offsetLeft: .gallery is position:sticky and therefore the
+           offsetParent, which made the obvious version silently never scroll.
+           Instant, not smooth — the stage image swaps instantly, so a rail that
+           glides afterwards reads as lag rather than polish. */
+        if (rail) {
           var railBox = rail.getBoundingClientRect();
           var activeBox = active.getBoundingClientRect();
-          var delta = (activeBox.left - railBox.left)
-                    - (rail.clientWidth - activeBox.width) / 2;
-          /* Instant, not smooth: the stage image swaps instantly, so a rail
-             that glides afterwards reads as lag rather than polish. */
-          rail.scrollLeft = rail.scrollLeft + delta;
+          if (rail.scrollWidth > rail.clientWidth) {
+            rail.scrollLeft += (activeBox.left - railBox.left)
+                             - (rail.clientWidth - activeBox.width) / 2;
+          }
+          if (rail.scrollHeight > rail.clientHeight) {
+            rail.scrollTop += (activeBox.top - railBox.top)
+                            - (rail.clientHeight - activeBox.height) / 2;
+          }
         }
         if (moveFocus) active.focus();
       }
