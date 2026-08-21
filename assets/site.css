@@ -273,12 +273,17 @@ b,strong{font-weight:600}
 
 /* ---------- marquees ----------------------------------------------------- */
 /* List is rendered twice; translateX(-50%) then loops seamlessly. */
-.ticker{background:var(--molo-navy);height:46px;overflow:hidden;position:relative}
+/* White, not navy: the band sits directly above the navy "ridiculously easy"
+   section, and matching it merged the two into one dark block. Only the home
+   page uses .ticker — the PDPs run .badgerow — so this is home-only in effect. */
+.ticker{background:var(--surface-page);height:46px;overflow:hidden;position:relative}
 .ticker__track{position:absolute;top:0;left:0;height:46px;display:flex;align-items:center;
   white-space:nowrap;animation:tick 32s linear infinite}
-.ticker span{display:inline-flex;align-items:center;gap:14px;padding:0 26px;color:#fff;
+.ticker span{display:inline-flex;align-items:center;gap:14px;padding:0 26px;color:var(--text-body);
   font-weight:600;font-size:12.5px;letter-spacing:.24em;text-transform:uppercase}
-.ticker b{color:var(--molo-sky-light);font-size:15px}
+/* Sky-light was a marker on navy and is barely there on white; the brand blue
+   is the accent that survives the flip. */
+.ticker b{color:var(--molo-blue);font-size:15px}
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .badgerow{overflow:hidden;position:relative;border-top:1px solid var(--molo-gray-e5);
   border-bottom:1px solid var(--molo-gray-e5);height:64px;background:#fff}
