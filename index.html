@@ -67,7 +67,19 @@
   font-size:26px;line-height:1.35;margin:0;max-width:30ch}
 
 /* Merch block sits on the floral band and links out only. No add to cart here. */
-.merch{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:56px;align-items:center}
+/* Three items, not two: the heading is split out so that when this stacks the
+   product image lands directly under "Our best seller" instead of after the
+   whole column. On desktop the heading and body sit in column one, rows one and
+   two, and the picture spans both rows in column two — which is the two-column
+   layout it has always been. row-gap:0 because head and body were one div until
+   now and the h2's own margin is the space between them. */
+.merch{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);
+  column-gap:56px;row-gap:0;align-items:center}
+.merch__head{grid-column:1;grid-row:1}
+.merch__body{grid-column:1;grid-row:2}
+.merch__pic{grid-column:2;grid-row:1 / span 2;display:block}
+.merch__pic img{transition:transform var(--molo-dur) var(--molo-ease)}
+.merch__pic:hover img{transform:scale(1.03)}
 .merch__split{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 22px}
 .merch__half{border-radius:24px;padding:18px 20px}
 .merch__half.ov{background:var(--surface-tint-soft)}
@@ -80,6 +92,9 @@
 
 @media(max-width:960px){
   .founders,.merch,.stdgrid{grid-template-columns:minmax(0,1fr);gap:22px}
+  /* Stacked: drop the explicit placement so the DOM order runs
+     heading, picture, body. */
+  .merch__head,.merch__pic,.merch__body{grid-column:1;grid-row:auto}
   .quoteband{grid-template-columns:minmax(0,1fr);padding:32px;gap:22px}
   .quoteband p{font-size:21px}
 }
@@ -200,9 +215,16 @@
   <section class="sec pat">
     <div class="wrap">
       <div class="merch">
-        <div>
+        <div class="merch__head">
           <p class="eyebrow">Our best seller</p>
           <h2 class="h2 wide">The Molo Fertility Protocol</h2>
+        </div>
+
+        <a class="imgframe merch__pic" href="protocol.html" style="aspect-ratio:1"
+           aria-label="Shop the Molo Fertility Protocol"><img src="assets/lp/HERO-BUYBOX-blush.jpg"
+          alt="Molo Ovulation and Prenatal with the free shaker. Nurse-formulated, two sticks a day, no added sugar, third-party tested." loading="lazy" width="1400" height="1400"></a>
+
+        <div class="merch__body">
           <p><b>Ovulation + Prenatal Essentials.</b> Fertility support has two jobs: the cycle you are in right now, and the foundation underneath it. Most routines only cover the second one. Molo covers both, in two drinks a day.</p>
 
           <div class="merch__split">
@@ -218,9 +240,6 @@
           <p class="small" style="color:var(--molo-gray-3a)">From <b>$1.77 a day</b> · Free shipping · 90-Day Money Back Guarantee</p>
           <p style="margin-top:24px"><a class="btn btn-lg" href="protocol.html">Shop the Protocol →</a></p>
         </div>
-
-        <div class="imgframe" style="aspect-ratio:1"><img src="assets/lp/HERO-BUYBOX-blush.jpg"
-          alt="Molo Ovulation and Prenatal with the free shaker. Nurse-formulated, two sticks a day, no added sugar, third-party tested." loading="lazy" width="1400" height="1400"></div>
       </div>
     </div>
   </section>

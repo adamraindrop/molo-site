@@ -724,5 +724,7 @@ b,strong{font-weight:600}
 
 @media(prefers-reduced-motion:reduce){
   .ticker__track,.badgerow__track{animation:none}
+  .merch__pic img{transition:none}
+  .merch__pic:hover img{transform:none}
   *{transition-duration:.01ms!important}
 }
