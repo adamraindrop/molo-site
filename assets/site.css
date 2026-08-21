@@ -284,6 +284,22 @@ b,strong{font-weight:600}
 .stage{border-radius:40px;overflow:hidden;position:relative;background:var(--molo-gray-f4);aspect-ratio:1}
 .stage img{width:100%;height:100%;object-fit:cover}
 
+/* Stage arrows. Injected by galleries() in site.js rather than written into the
+   three PDPs, because they are inert without that script and all three share
+   it. 44px is the tap-target floor the QA sweep enforces; the 14px inset keeps
+   the 3px focus ring clear of the stage's own overflow:hidden edge. */
+.stage__nav{position:absolute;top:50%;margin-top:-22px;width:44px;height:44px;
+  border:0;padding:0;border-radius:var(--molo-radius-pill);
+  display:grid;place-items:center;cursor:pointer;
+  background:var(--surface-card);color:var(--molo-navy);
+  box-shadow:var(--molo-shadow-card);
+  transition:background var(--molo-dur-fast) var(--molo-ease),
+             color var(--molo-dur-fast) var(--molo-ease)}
+.stage__nav--prev{left:14px}
+.stage__nav--next{right:14px}
+.stage__nav:hover{background:var(--surface-dark);color:var(--molo-white)}
+.stage__nav svg{width:20px;height:20px;display:block}
+
 /* ---------- buy box ------------------------------------------------------ */
 .bb__social{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:600;margin:0 0 10px}
 .bb__desc{font-size:15.5px;font-weight:600;line-height:1.5;margin:0 0 18px;max-width:52ch}
@@ -575,6 +591,11 @@ b,strong{font-weight:600}
     order:2;padding-bottom:2px;scrollbar-width:none}
   .galrail::-webkit-scrollbar{display:none}
   .galrail .thumb{width:56px;height:56px}
+
+  /* Stage is edge-to-edge on a phone, so the arrows tuck in tighter. Size
+     stays 44 — shrinking it here is what would break the tap-target floor. */
+  .stage__nav--prev{left:10px}
+  .stage__nav--next{right:10px}
 
   /* Buy box steps down to the reference's phone scale. */
   .bb__social{font-size:12.5px;gap:7px}

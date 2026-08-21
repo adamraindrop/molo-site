@@ -209,18 +209,83 @@
     });
   }
 
-  /* Gallery: thumb click swaps the stage image. */
+  /* Gallery: thumbs and the injected stage arrows drive one shared selection.
+     The arrows are built here rather than written into the three PDPs because
+     they do nothing without this script, and because all three use the same
+     markup — one definition beats three copies drifting apart. */
   function galleries() {
     document.querySelectorAll('[data-gallery]').forEach(function (g) {
-      var stage = g.querySelector('.stage img');
-      var thumbs = g.querySelectorAll('.thumb');
-      thumbs.forEach(function (t) {
-        t.addEventListener('click', function () {
-          thumbs.forEach(function (x) { x.setAttribute('aria-selected', String(x === t)); });
-          var img = t.querySelector('img');
-          if (stage && img) { stage.src = img.src; stage.alt = t.getAttribute('data-alt') || ''; }
+      var stage = g.querySelector('.stage');
+      var stageImg = stage && stage.querySelector('img');
+      var rail = g.querySelector('.galrail');
+      var thumbs = [].slice.call(g.querySelectorAll('.thumb'));
+      if (!stage || !stageImg || !thumbs.length) return;
+
+      var current = 0;
+      for (var i = 0; i < thumbs.length; i++) {
+        if (thumbs[i].getAttribute('aria-selected') === 'true') { current = i; break; }
+      }
+
+      function select(next, moveFocus) {
+        current = (next + thumbs.length) % thumbs.length;   // wraps both ways
+        var active = thumbs[current];
+        thumbs.forEach(function (x, i) {
+          x.setAttribute('aria-selected', String(i === current));
         });
+        var img = active.querySelector('img');
+        if (img) {
+          stageImg.src = img.src;
+          stageImg.alt = active.getAttribute('data-alt') || '';
+        }
+        /* Below 640 the rail scrolls sideways, so an arrow that changed the
+           stage but left the active thumb off-screen would look half-broken.
+           Scroll the rail itself, never scrollIntoView — that would drag the
+           whole page vertically as a side effect. */
+        if (rail && rail.scrollWidth > rail.clientWidth) {
+          /* Measured off rects, not offsetLeft: .gallery is position:sticky, so
+             it is the offsetParent and offsetLeft is relative to it rather than
+             to the rail's scroll content. That silently never scrolled. */
+          var railBox = rail.getBoundingClientRect();
+          var activeBox = active.getBoundingClientRect();
+          var delta = (activeBox.left - railBox.left)
+                    - (rail.clientWidth - activeBox.width) / 2;
+          /* Instant, not smooth: the stage image swaps instantly, so a rail
+             that glides afterwards reads as lag rather than polish. */
+          rail.scrollLeft = rail.scrollLeft + delta;
+        }
+        if (moveFocus) active.focus();
+      }
+
+      thumbs.forEach(function (t, i) {
+        t.addEventListener('click', function () { select(i); });
       });
+
+      /* A single image has nothing to page through. */
+      if (thumbs.length < 2) return;
+
+      function arrow(dir, label, path) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'stage__nav stage__nav--' + dir;
+        b.setAttribute('aria-label', label);
+        b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+          'stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" ' +
+          'aria-hidden="true"><path d="' + path + '"/></svg>';
+        b.addEventListener('click', function () {
+          select(current + (dir === 'next' ? 1 : -1));
+        });
+        return b;
+      }
+      stage.appendChild(arrow('prev', 'Previous image', 'M15 5l-7 7 7 7'));
+      stage.appendChild(arrow('next', 'Next image', 'M9 5l7 7-7 7'));
+
+      /* Left/right keys on the rail, which is where a keyboard lands first. */
+      if (rail) {
+        rail.addEventListener('keydown', function (e) {
+          if (e.key === 'ArrowRight') { e.preventDefault(); select(current + 1, true); }
+          else if (e.key === 'ArrowLeft') { e.preventDefault(); select(current - 1, true); }
+        });
+      }
     });
   }
 
